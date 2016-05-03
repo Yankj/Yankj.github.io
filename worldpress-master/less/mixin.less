@@ -1,0 +1,102 @@
+.float-left {
+	float:left;
+}
+.float-right {
+	float:right;
+}
+.no-display {
+	display:none;
+}
+.centered-text{
+	text-align: center;
+}
+.centered-block(@top-margin:0) {
+	margin:@top-margin auto;
+}
+.transition(@property:all;@time:0.5s;@function:ease-in-out) {
+	-moz-transition:@property @time @function;
+	-webkit-transition:@property @time @function;
+	transition:@property @time @function;
+}
+.resetpadding(@value:0){
+	padding:@value;
+}
+.resetmargin(@value:0){
+	margin: @value;
+}
+.square(@value) {
+	width:@value;
+	height:@value;
+}
+.fa() {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+}
+.centered-padding(@value){
+	padding-left:@value;
+	padding-right:@value;
+}
+.middle-padding(@value){
+	padding-top:@value;
+	padding-bottom:@value;
+}
+.centered-margin(@value){
+	margin-left:@value;
+	margin-right:@value;
+}
+.img-responsive {
+	max-width: 100%;
+	height:auto;
+	display: block;
+}
+.transform-text(@value:capitalize) {
+	text-transform: @value
+}
+.dotbottomborder(){
+	border-bottom:1px dotted @main-color;
+}
+.border-radius(@value:5px){
+	border-radius: @value;
+}
+.tri(@color,@dir,@length) when (@dir=top) {
+	content:" ";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 @length/2 round(@length*0.866025,1) @length/2;
+	border-color: transparent transparent @color transparent;
+}
+.tri(@color,@dir,@length) when (@dir=left) {
+	content:" ";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: @length/2 round(@length*0.866025,1) @length/2 0;
+	border-color: transparent @color transparent  transparent;
+}
+.tri(@color,@dir,@length) when (@dir=bottom) {
+	content:" ";
+	width: 0;
+	height: 0;
+	border-width: round(@length*0.866025,1) @length/2 0 @length/2;
+	border-style: solid;
+	border-color: @color transparent transparent  transparent;
+}
+.tri(@color,@dir,@length) when (@dir=right) {
+	content:" ";
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: @length/2 0 @length/2 round(@length*0.866025,1);
+	border-color: transparent transparent transparent @color;
+}
+.white {
+	background-color: #fff;
+}
+.float-clear {
+	&::after {
+		content:" ";
+		display:table;
+	}
+}
