@@ -1,0 +1,9 @@
+
+<h1 align="center">等你很久了</h1>
+
+基于 GitHub Pages && Hexo搭建的极简博客，
+[去瞧瞧](https://yankj.github.com/)
+
+## 感谢
+- [Hexo](https://github.com/hexojs/hexo),[getting-started](https://hexo.io)
+- [theme-next](https://hexo.io),[getting-started](http://theme-next.iissnan.com/getting-started.html)

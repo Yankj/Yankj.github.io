@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SVG," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前端做动画有哪些方式？各有什么优缺点？css3 transition animation  利用css3上述两种动画可以满足我们都日常需求，但是有很多效果它做不到，比如下面我们要说都一个loading js + css通过js去动态去改变css属性也可以实现动画，只是在上面css3动画都基础上我们还要去操作dom canvas + js利用canvas画图更新每一帧做动画，很多h5游戏也是这么做的">
+<meta name="keywords" content="SVG">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SVG做个loading">
+<meta property="og:url" content="http://Yankj.github.io/文章-SVG/svg做个loading/index.html">
+<meta property="og:site_name" content="等你很久了">
+<meta property="og:description" content="前端做动画有哪些方式？各有什么优缺点？css3 transition animation  利用css3上述两种动画可以满足我们都日常需求，但是有很多效果它做不到，比如下面我们要说都一个loading js + css通过js去动态去改变css属性也可以实现动画，只是在上面css3动画都基础上我们还要去操作dom canvas + js利用canvas画图更新每一帧做动画，很多h5游戏也是这么做的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-17T17:53:06.055Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SVG做个loading">
+<meta name="twitter:description" content="前端做动画有哪些方式？各有什么优缺点？css3 transition animation  利用css3上述两种动画可以满足我们都日常需求，但是有很多效果它做不到，比如下面我们要说都一个loading js + css通过js去动态去改变css属性也可以实现动画，只是在上面css3动画都基础上我们还要去操作dom canvas + js利用canvas画图更新每一帧做动画，很多h5游戏也是这么做的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://Yankj.github.io/文章-SVG/svg做个loading/"/>
+
+
+
+
+
+  <title>SVG做个loading | 等你很久了</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">等你很久了</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿岁月能安</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Yankj.github.io/文章-SVG/svg做个loading/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kunjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="等你很久了">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SVG做个loading</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-07T18:54:26+08:00">
+                2018-01-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/文章-SVG/" itemprop="url" rel="index">
+                    <span itemprop="name">文章-SVG</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/文章-SVG/svg做个loading/" class="leancloud_visitors" data-flag-title="SVG做个loading">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前端做动画有哪些方式？各有什么优缺点？"><a href="#前端做动画有哪些方式？各有什么优缺点？" class="headerlink" title="前端做动画有哪些方式？各有什么优缺点？"></a>前端做动画有哪些方式？各有什么优缺点？</h3><h4 id="css3"><a href="#css3" class="headerlink" title="css3"></a>css3</h4><ul>
+<li>transition</li>
+<li>animation</li>
+</ul>
+<p>利用css3上述两种动画可以满足我们都日常需求，但是有很多效果它做不到，比如下面我们要说都一个loading</p>
+<h4 id="js-css"><a href="#js-css" class="headerlink" title="js + css"></a>js + css</h4><p>通过js去动态去改变css属性也可以实现动画，只是在上面css3动画都基础上我们还要去操作dom</p>
+<h4 id="canvas-js"><a href="#canvas-js" class="headerlink" title="canvas + js"></a>canvas + js</h4><p>利用canvas画图更新每一帧做动画，很多h5游戏也是这么做的，它更适合游戏这样复杂等场景</p>
+<h4 id="gif"><a href="#gif" class="headerlink" title="gif"></a>gif</h4><p>利用photoshop等工具制作gif，在项目中直接引用。在需求特别紧急，而且动画又特别复杂的情况下，自己没有把握按时实现效果，或者代价太大，真的，别犹豫，上gif图片。</p>
+<p>gif的不足就是修改它就得去换图，并且质量差，容易虚</p>
+<h4 id="svg"><a href="#svg" class="headerlink" title="svg"></a>svg</h4><p>都知道svg是矢量图,放大不失真，却不是谁都知道svg可以做动画，比如最近跟我合作的设计师….</p>
+<p>svg可以用它的animate标签来做动画，也可以用css3做动画。</p>
+<p>用svg做动画我们可以随意缩放，并且无需操作dom。</p>
+<h3 id="动手做一个svg动画"><a href="#动手做一个svg动画" class="headerlink" title="动手做一个svg动画"></a>动手做一个svg动画</h3><p>今天主要要说的也就是怎么利用svg做动画，下面我们会做这样一个loading<br><iframe src="//jsrun.net/R6qKp/embedded/all/light/" width="100%" height="300" frameborder="0" allowfullscreen></iframe></p>
+<blockquote>
+<p>咱们需要的loading要求为：在父容器为29*29时，直径（含边框）为29，边框宽为4，边分为深灰和浅灰两段，<br>这两段分别执行长短变化的动画，整体有旋转动画。深灰色部分长度<br>改变父容器宽高，loading能等比缩放。</p>
+</blockquote>
+<p>先介绍一种简单的方法，如果你的交互设计师使用AE（Adobe After Effects）设计的动画效果，那么你可以推荐它使用bodymovin这款插件帮你直接倒出svg动画，<br>可以直接导出demo，但是这个svg是要依赖bodymovin.js库去播放的🐶🐶，可参考 <a href="https://www.cnblogs.com/zamhown/p/6688369.html" target="_blank" rel="noopener">大杀器Bodymovin和Lottie：把AE动画转换成HTML5/Android/iOS原生动画</a></p>
+<p>言归正传：怎么实现上面这个动画？</p>
+<h4 id="首先了解一下原理"><a href="#首先了解一下原理" class="headerlink" title="首先了解一下原理"></a>首先了解一下原理</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"loading"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 29 29"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c1"</span> <span class="attr">cx</span>=<span class="string">"14.5"</span> <span class="attr">cy</span>=<span class="string">"14.5"</span> <span class="attr">r</span>=<span class="string">"12.5"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">stroke</span>=<span class="string">"#b1b1b1"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c2"</span> <span class="attr">cx</span>=<span class="string">"14.5"</span> <span class="attr">cy</span>=<span class="string">"14.5"</span> <span class="attr">r</span>=<span class="string">"12.5"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">stroke</span>=<span class="string">"#c7c7c7"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>首先认识一下上面svg中的基本属性:<br>cicle用来画一个圆，<code>fill=&quot;none&quot;</code>将圆掏空为边框，<code>stroke-width</code>为边框宽度，<code>cx</code>和<code>cy</code>属性定义圆点的 x 和 y 坐标，r为圆的半径</p>
+<ul>
+<li><p>viewBox<br><code>viewBox</code>的四个参数分别代表：最小X轴数值；最小y轴数值；宽度；高度。<br>前两个暂时用不到，可理解为除对内部svg做整体位移，一般都是0 0，暂时先不做解释，重点关注后两个参数，可理解为svg的画布大小，会将内部按照在此宽高基础上的占比，放大至svg的宽高。<br>不理解的话可以看 <a href="http://www.zhangxinxu.com/wordpress/2014/08/svg-viewport-viewbox-preserveaspectratio/" target="_blank" rel="noopener">理解SVG viewport,viewBox,preserveAspectRatio缩放</a>/<a href="https://segmentfault.com/a/1190000009226427" target="_blank" rel="noopener">SVG之ViewBox</a></p>
+<p> 为了使svg内部能撑满，这里设置<code>viewBox=&quot;0 0 29 29&quot;</code></p>
+</li>
+<li>stroke-dasharray<br>重点来了，<code>stroke-dasharray</code>在SVG中表示描边是虚线，两个值，第一个是虚线的宽度，第二个是虚线之间的间距。有点像css中dashed的border。我们就是利用它也画我们弧形的边框，以及后续控制边框长短。</li>
+</ul>
+<iframe width="100%" height="300" src="//jsrun.net/7IqKp/embedded/all/light/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<ul>
+<li>stroke-dashoffset<br>定义虚线描边的偏移量。<br>你可能需要看一下<a href="http://www.zhangxinxu.com/wordpress/2014/04/animateion-line-drawing-svg-path-%E5%8A%A8%E7%94%BB-%E8%B7%AF%E5%BE%84/" target="_blank" rel="noopener">纯CSS实现帅气的SVG路径描边动画效果</a></li>
+</ul>
+<h4 id="理解动画过程"><a href="#理解动画过程" class="headerlink" title="理解动画过程"></a>理解动画过程</h4><p>先画出圆，这一步相对简单,主要是使用合适的viewBox。另外svg的css记<code>display:block</code>,否则在容器较小的会有莫名的边距的。<br><figure class="highlight xhtml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"loading"</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 29 29"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c1"</span> <span class="attr">cx</span>=<span class="string">"14.5"</span> <span class="attr">cy</span>=<span class="string">"14.5"</span> <span class="attr">r</span>=<span class="string">"12.5"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">stroke</span>=<span class="string">"#b1b1b1"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c2"</span> <span class="attr">cx</span>=<span class="string">"14.5"</span> <span class="attr">cy</span>=<span class="string">"14.5"</span> <span class="attr">r</span>=<span class="string">"12.5"</span> <span class="attr">fill</span>=<span class="string">"none"</span> <span class="attr">stroke-width</span>=<span class="string">"4"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">stroke</span>=<span class="string">"#c7c7c7"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="深灰色圆弧c1的长度变化动画"><a href="#深灰色圆弧c1的长度变化动画" class="headerlink" title="深灰色圆弧c1的长度变化动画"></a>深灰色圆弧c1的长度变化动画</h5><p>c1的动画相对简单，<code>stroke-dashoffset</code>默认为0即可，主要是利用<code>stroke-dasharray</code>控制圆环弧度的长。</p>
+<p>通过的两个参数的意义，我们可以推测，c1的<code>stroke-dasharray</code>第一个参数为1,第二个参数为周长2πr的值时刚好只剩一个小边，第一个参数为周长，第二个参数也为周长<br>时刚好成为360度的圆环。尝试发现确实是。</p>
+<p>我们假定<code>stroke-dasharray:a b</code>即第一个参数为a，第二个参数为b，则b为周长，a从1向上加即可得到顺时针的c1的长度动画。如果想要按照需要的长度区间，则可以根据周长的占比计算。<br>比如：长度在1.832s内从78%到31%再到78%的动画，动画曲线cubic-bezier(0.18, 0, 0.58, 1)。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c1</span>&#123;</span><br><span class="line">    <span class="attribute">animation</span>: long2 <span class="number">1.832s</span> <span class="built_in">cubic-bezier</span>(0.18, 0, 0.58, 1) <span class="number">0s</span> infinite; </span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> long2 &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">stroke-dasharray</span>: <span class="number">60.6</span> <span class="number">78</span>;</span><br><span class="line">     &#125;</span><br><span class="line">  50% &#123;</span><br><span class="line">    <span class="attribute">stroke-dasharray</span>: <span class="number">23.9</span> <span class="number">78</span>; &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">stroke-dasharray</span>: <span class="number">60.6</span> <span class="number">78</span>; &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="浅灰色圆弧c2的长度变化动画"><a href="#浅灰色圆弧c2的长度变化动画" class="headerlink" title="浅灰色圆弧c2的长度变化动画"></a>浅灰色圆弧c2的长度变化动画</h5><p>假定c2的<code>stroke-dasharray:a b</code>即第一个参数为a，a的长度由占比<em>周长得到，第二个参数为b，从上面知道b的值一样需要是圆的周长。<code>storke-dashoffset: c</code>参数为c。<br>由于c1在动画过程中长度会变，这个过程c1的起点不变，尾巴在顺时针变长变短。而c2需要紧跟c1，那么我们就需要让c2往反方向么也就是逆时针做长度变化的动画，控制c2的<code>storke-dashoffset</code>值让它紧跟c1,<br>当c == 2 </em> a的时候，c2刚好与c1衔接。（c2的stroke-dashoffset再减一个1 免得连不上）<br>比如：长度在1.832s内从12%到4%再到12%的动画，动画曲线cubic-bezier(0.18, 0, 0.58, 1)。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.c2</span>&#123;</span><br><span class="line"> <span class="attribute">animation</span>: short <span class="number">1.832s</span> <span class="built_in">cubic-bezier</span>(0.18, 0, 0.58, 1) <span class="number">0s</span> infinite; </span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> short2 &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">stroke-dasharray</span>: <span class="number">9.36</span> <span class="number">78</span>;</span><br><span class="line">    <span class="comment">/*12*/</span></span><br><span class="line">    <span class="attribute">stroke-dashoffset</span>: <span class="number">17.72</span>;</span><br><span class="line">    <span class="comment">/* 9.36*2 - 1 */</span> &#125;</span><br><span class="line">  50% &#123;</span><br><span class="line">    <span class="attribute">stroke-dasharray</span>: <span class="number">5.46</span> <span class="number">78</span>;</span><br><span class="line">    <span class="comment">/*4*/</span></span><br><span class="line">    <span class="attribute">stroke-dashoffset</span>: <span class="number">9.92</span>; &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">stroke-dasharray</span>: <span class="number">9.36</span> <span class="number">78</span>;</span><br><span class="line">    <span class="comment">/*12*/</span></span><br><span class="line">    <span class="attribute">stroke-dashoffset</span>: <span class="number">17.72</span>; &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="旋转动画"><a href="#旋转动画" class="headerlink" title="旋转动画"></a>旋转动画</h5><p>旋转动画有多种实现方式</p>
+<ul>
+<li>css3 animate动画<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.loading</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: rotate <span class="number">1.832s</span> linear <span class="number">0s</span> infinite;</span><br><span class="line">  display: block;//一定记得svg转块，不然小的时候莫名的被父元素挤出来</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> rotate &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  50% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(360deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(720deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>svg内部animate<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"full-loading"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 29 29"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">            <span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">"rotate"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">dur</span>=<span class="string">"1.832s"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">from</span>=<span class="string">"0  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">to</span>=<span class="string">"720  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c2"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">            <span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">type</span>=<span class="string">"rotate"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">dur</span>=<span class="string">"1.832s"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">from</span>=<span class="string">"0  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">to</span>=<span class="string">"720  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这里要注意，下面这样不行：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"full-loading"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 29 29"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">type</span>=<span class="string">"rotate"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">dur</span>=<span class="string">"1.832s"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">from</span>=<span class="string">"0  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">to</span>=<span class="string">"720  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c2"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>至此，loading已完成,结果可以看最上面。</p>
+<h3 id="做成一个svg文件"><a href="#做成一个svg文件" class="headerlink" title="做成一个svg文件"></a>做成一个svg文件</h3><p>上面我们虽然完成了svg动画，但是是分为css和svg两部分，能不能合成一个svg文件呢？<br>我们这么把css嵌入svg文件呢？<br>详细内容你可以看看<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/style" target="_blank" rel="noopener">SVG element reference</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">"200"</span> <span class="attr">height</span>=<span class="string">"200"</span> <span class="attr">viewPort</span>=<span class="string">"0 0 200 300"</span> <span class="attr">version</span>=<span class="string">"1.1"</span> <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"full-loading"</span> <span class="attr">viewBox</span>=<span class="string">"0 0 29 29"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c1"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">type</span>=<span class="string">"rotate"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">dur</span>=<span class="string">"1.832s"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">from</span>=<span class="string">"0  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">to</span>=<span class="string">"720  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">circle</span> <span class="attr">class</span>=<span class="string">"c2"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">type</span>=<span class="string">"rotate"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">dur</span>=<span class="string">"1.832s"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">from</span>=<span class="string">"0  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">to</span>=<span class="string">"720  14.5 14.5"</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">repeatCount</span>=<span class="string">"indefinite"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined">&lt;![CDATA[</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"> <span class="selector-class">.full-loading</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">-webkit-animation</span>: <span class="selector-tag">rotate</span> 1<span class="selector-class">.832s</span> <span class="selector-tag">linear</span> 0<span class="selector-tag">s</span> <span class="selector-tag">infinite</span>;</span></span><br><span class="line"><span class="css">          <span class="selector-tag">animation</span>: <span class="selector-tag">rotate</span> 1<span class="selector-class">.832s</span> <span class="selector-tag">linear</span> 0<span class="selector-tag">s</span> <span class="selector-tag">infinite</span>;</span></span><br><span class="line"><span class="undefined">  display: block; &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">circle</span><span class="selector-class">.c1</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">stroke</span>: <span class="selector-id">#929292</span>;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">-webkit-animation</span>: <span class="selector-tag">long</span> 1<span class="selector-class">.832s</span> <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.18</span>, 0, 0<span class="selector-class">.58</span>, 1) 0<span class="selector-tag">s</span> <span class="selector-tag">infinite</span>;</span></span><br><span class="line"><span class="css">          <span class="selector-tag">animation</span>: <span class="selector-tag">long</span> 1<span class="selector-class">.832s</span> <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.18</span>, 0, 0<span class="selector-class">.58</span>, 1) 0<span class="selector-tag">s</span> <span class="selector-tag">infinite</span>; &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.night</span> <span class="selector-tag">circle</span><span class="selector-class">.c1</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke</span>: <span class="selector-id">#606060</span>; &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css"><span class="selector-tag">circle</span><span class="selector-class">.c2</span> &#123;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">stroke</span>: <span class="selector-id">#B1B1B1</span>;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">-webkit-animation</span>: <span class="selector-tag">short</span> 1<span class="selector-class">.832s</span> <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.18</span>, 0, 0<span class="selector-class">.58</span>, 1) 0<span class="selector-tag">s</span> <span class="selector-tag">infinite</span>;</span></span><br><span class="line"><span class="css">          <span class="selector-tag">animation</span>: <span class="selector-tag">short</span> 1<span class="selector-class">.832s</span> <span class="selector-tag">cubic-bezier</span>(0<span class="selector-class">.18</span>, 0, 0<span class="selector-class">.58</span>, 1) 0<span class="selector-tag">s</span> <span class="selector-tag">infinite</span>; &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.night</span> <span class="selector-tag">circle</span><span class="selector-class">.c2</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke</span>: <span class="selector-id">#4E4E4E</span>; &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.full-loading</span> &#123;</span></span><br><span class="line"><span class="undefined">  width: 100%;</span></span><br><span class="line"><span class="undefined">  height: 100%; &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.full-loading</span> <span class="selector-tag">circle</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">cx</span>: 14<span class="selector-class">.5</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">cy</span>: 14<span class="selector-class">.5</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">r</span>: 12<span class="selector-class">.5</span>;</span></span><br><span class="line"><span class="undefined">    fill: none;</span></span><br><span class="line"><span class="undefined">    stroke-width: 4; &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.full-loading</span> <span class="selector-tag">circle</span><span class="selector-class">.c2</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">stroke-dasharray</span>: 9<span class="selector-class">.36</span> 78;</span></span><br><span class="line"><span class="css">      <span class="comment">/*12*/</span></span></span><br><span class="line"><span class="css">      <span class="selector-tag">stroke-dashoffset</span>: 17<span class="selector-class">.72</span>;</span></span><br><span class="line"><span class="undefined">      -webkit-animation-name: short2;</span></span><br><span class="line"><span class="undefined">              animation-name: short2; &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.full-loading</span> <span class="selector-tag">circle</span><span class="selector-class">.c1</span> &#123;</span></span><br><span class="line"><span class="css">      <span class="selector-tag">stroke-dasharray</span>: 60<span class="selector-class">.6</span> 78;</span></span><br><span class="line"><span class="css">      <span class="comment">/*78*/</span></span></span><br><span class="line"><span class="undefined">      stroke-dashoffset: 0;</span></span><br><span class="line"><span class="undefined">      -webkit-animation-name: long2;</span></span><br><span class="line"><span class="undefined">              animation-name: long2; &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> long2 &#123;</span></span><br><span class="line"><span class="undefined">  0% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 60<span class="selector-class">.6</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*78*/</span> &#125;</span></span><br><span class="line"><span class="undefined">  50% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 23<span class="selector-class">.9</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*31*/</span>&#125;</span></span><br><span class="line"><span class="undefined">  100% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 60<span class="selector-class">.6</span> 78; &#125; &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">@<span class="keyword">keyframes</span> long2 &#123;</span></span><br><span class="line"><span class="undefined">  0% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 60<span class="selector-class">.6</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*78*/</span> &#125;</span></span><br><span class="line"><span class="undefined">  50% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 23<span class="selector-class">.9</span> 78; &#125;</span></span><br><span class="line"><span class="undefined">  100% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 60<span class="selector-class">.6</span> 78; &#125; &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> short2 &#123;</span></span><br><span class="line"><span class="undefined">  0% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 9<span class="selector-class">.36</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*12*/</span></span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dashoffset</span>: 17<span class="selector-class">.72</span>;</span></span><br><span class="line"><span class="css">    <span class="comment">/* 9.36*2 - 1 */</span> &#125;</span></span><br><span class="line"><span class="undefined">  50% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 5<span class="selector-class">.46</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*4*/</span></span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dashoffset</span>: 9<span class="selector-class">.92</span>; &#125;</span></span><br><span class="line"><span class="undefined">  100% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 9<span class="selector-class">.36</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*12*/</span></span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dashoffset</span>: 17<span class="selector-class">.72</span>; &#125; &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="css">@<span class="keyword">keyframes</span> short2 &#123;</span></span><br><span class="line"><span class="undefined">  0% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 9<span class="selector-class">.36</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*12*/</span></span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dashoffset</span>: 17<span class="selector-class">.72</span>;</span></span><br><span class="line"><span class="css">    <span class="comment">/* 9.36*2 - 1 */</span> &#125;</span></span><br><span class="line"><span class="undefined">  50% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 5<span class="selector-class">.46</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*4*/</span></span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dashoffset</span>: 9<span class="selector-class">.92</span>; &#125;</span></span><br><span class="line"><span class="undefined">  100% &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dasharray</span>: 9<span class="selector-class">.36</span> 78;</span></span><br><span class="line"><span class="css">    <span class="comment">/*12*/</span></span></span><br><span class="line"><span class="css">    <span class="selector-tag">stroke-dashoffset</span>: 17<span class="selector-class">.72</span>; &#125; &#125;</span></span><br><span class="line"><span class="undefined">]]&gt;</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里的旋转用的animate标签，因为animate的rotate动画拿进来不行，很诡异。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SVG/" rel="tag"># SVG</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/文章-JS/ES6深入剖析之Let和块作用域/" rel="next" title="ES6深入剖析之Let和块作用域">
+                <i class="fa fa-chevron-left"></i> ES6深入剖析之Let和块作用域
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/文章-JS/ES6常用特性/" rel="prev" title="ES6常用特性">
+                ES6常用特性 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">kunjie</p>
+              <p class="site-description motion-element" itemprop="description">一个简单写文字的博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端做动画有哪些方式？各有什么优缺点？"><span class="nav-number">1.</span> <span class="nav-text">前端做动画有哪些方式？各有什么优缺点？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#css3"><span class="nav-number">1.1.</span> <span class="nav-text">css3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js-css"><span class="nav-number">1.2.</span> <span class="nav-text">js + css</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#canvas-js"><span class="nav-number">1.3.</span> <span class="nav-text">canvas + js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gif"><span class="nav-number">1.4.</span> <span class="nav-text">gif</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#svg"><span class="nav-number">1.5.</span> <span class="nav-text">svg</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动手做一个svg动画"><span class="nav-number">2.</span> <span class="nav-text">动手做一个svg动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#首先了解一下原理"><span class="nav-number">2.1.</span> <span class="nav-text">首先了解一下原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#理解动画过程"><span class="nav-number">2.2.</span> <span class="nav-text">理解动画过程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#深灰色圆弧c1的长度变化动画"><span class="nav-number">2.2.1.</span> <span class="nav-text">深灰色圆弧c1的长度变化动画</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#浅灰色圆弧c2的长度变化动画"><span class="nav-number">2.2.2.</span> <span class="nav-text">浅灰色圆弧c2的长度变化动画</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#旋转动画"><span class="nav-number">2.2.3.</span> <span class="nav-text">旋转动画</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做成一个svg文件"><span class="nav-number">3.</span> <span class="nav-text">做成一个svg文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kunjie</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script  type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script  type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script  type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script  type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script  type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script  type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script  type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script  type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script  type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script  type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script  type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script  type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("d43zs3fmfwFtRtl1Ch2y0cIC-gzGzoHsz", "5JAvRcqWvoursb8mOVaEH39g");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

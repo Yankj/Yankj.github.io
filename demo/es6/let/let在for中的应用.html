@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+
+  <ul class="for">
+    <li>我是用var绑定的事件</li>
+    <li>我是用var绑定的事件</li>
+    <li>我是用var绑定的事件</li>
+  </ul>
+
+  <ul class="let">
+    <li>我是用let绑定的事件</li>
+    <li>我是用let绑定的事件</li>
+    <li>我是用let绑定的事件</li>
+  </ul>
+
+  <ul class="iife">
+    <li>我是用iife绑定的事件</li>
+    <li>我是用iife绑定的事件</li>
+    <li>我是用iife绑定的事件</li>
+  </ul>
+
+
+<script type="text/javascript">
+  var lis = document.getElementsByClassName('for')[0].getElementsByTagName('li');
+  for(var i = 0;i < lis.length; i++){
+    lis[i].onclick = function(){
+      alert(i)
+    }
+  }
+  // 全弹出3
+
+  var lis = document.getElementsByClassName('let')[0].getElementsByTagName('li');
+  for(let i = 0;i < lis.length; i++){
+    lis[i].onclick = function(){
+      alert(i)
+    }
+  }
+  //分别弹出0,1,2
+
+  var lis = document.getElementsByClassName('iife')[0].getElementsByTagName('li');
+  for(var i = 0;i < lis.length; i++){
+    (function(i){
+      lis[i].onclick = function(){
+        alert(i)
+      }
+    })(i)
+  }
+  //分别弹出0,1,2
+</script>
+</body>
+</html>
