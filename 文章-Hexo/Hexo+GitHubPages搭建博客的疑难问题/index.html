@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="等你很久了">
 <meta property="og:description" content="首先，这篇文章并不是一个搭建博客的教程，这里主要说说Hexo+gitpages搭建博客过程中需要注意的的问题。 命令格式1234567891011121314hexo new &amp;quot;postName&amp;quot; #新建文章hexo new page &amp;quot;pageName&amp;quot; #新建页面hexo generate #生成静态页面至public目录hexo server #开启预">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T16:35:40.000Z">
+<meta property="og:updated_time" content="2018-09-16T14:06:16.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+GitHubPages搭建博客的疑难问题">
 <meta name="twitter:description" content="首先，这篇文章并不是一个搭建博客的教程，这里主要说说Hexo+gitpages搭建博客过程中需要注意的的问题。 命令格式1234567891011121314hexo new &amp;quot;postName&amp;quot; #新建文章hexo new page &amp;quot;pageName&amp;quot; #新建页面hexo generate #生成静态页面至public目录hexo server #开启预">
@@ -354,16 +354,16 @@
 
       
         <p>首先，这篇文章并不是一个搭建博客的教程，这里主要说说Hexo+gitpages搭建博客过程中需要注意的的问题。</p>
-<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br><span class="line">hexo deploy -g  #生成加部署</span><br><span class="line">hexo server -g  #生成加预览</span><br><span class="line">命令的简写</span><br><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
-<p>部署三部曲<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo c</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
-<h3 id="目录简要说明"><a href="#目录简要说明" class="headerlink" title="目录简要说明"></a>目录简要说明</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public --------------&gt; 包含发布后的文件</span><br><span class="line">source --------------&gt; 包含发布前的文件，文章在这里写</span><br><span class="line">themes --------------&gt; 主题放在这里</span><br><span class="line">_config.yml ---------&gt; 主配置文件</span><br></pre></td></tr></table></figure>
+<h3 id="命令格式"><a href="#命令格式" class="headerlink" title="命令格式"></a>命令格式</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br><span class="line">hexo deploy -g  #生成加部署</span><br><span class="line">hexo server -g  #生成加预览</span><br><span class="line">命令的简写</span><br><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure></div>
+<p>部署三部曲<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo c</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="目录简要说明"><a href="#目录简要说明" class="headerlink" title="目录简要说明"></a>目录简要说明</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public --------------&gt; 包含发布后的文件</span><br><span class="line">source --------------&gt; 包含发布前的文件，文章在这里写</span><br><span class="line">themes --------------&gt; 主题放在这里</span><br><span class="line">_config.yml ---------&gt; 主配置文件</span><br></pre></td></tr></table></figure></div>
 <h3 id="引用自己文章和页面"><a href="#引用自己文章和页面" class="headerlink" title="引用自己文章和页面"></a>引用自己文章和页面</h3><ul>
 <li><p>引用自己文章</p>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post_link welcome %&#125;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% post_link welcome %&#125;</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>引用自己根目录的页面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[查看let在for中的应用demo](/demo/es6/let/let在for中的应用.html)</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[查看let在for中的应用demo](/demo/es6/let/let在for中的应用.html)</span><br></pre></td></tr></table></figure></div>
 </li>
 </ul>
 <h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><ul>
@@ -371,28 +371,28 @@
 <li>主题内部有_config.yml，可设置Scheme等</li>
 <li>配置文件_config.yml请确认您使用空格进行缩进，并确认冒号后有加上一个空格</li>
 </ul>
-<h3 id="文字设置题目、分类、标签"><a href="#文字设置题目、分类、标签" class="headerlink" title="文字设置题目、分类、标签"></a>文字设置题目、分类、标签</h3><p>在Markdown文件的开头添加，你的文章头部都应该包含<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 你的题目</span><br><span class="line">tags: 你的标签</span><br><span class="line">category: 你的分类</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<h3 id="category设置注意事项"><a href="#category设置注意事项" class="headerlink" title="category设置注意事项"></a>category设置注意事项</h3><p>Hexo默认生成的目录为year/month/day/title/可以修改为category/title/，<br>在主配置文件中修改permalink即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: :category/:title/</span><br></pre></td></tr></table></figure></p>
+<h3 id="文字设置题目、分类、标签"><a href="#文字设置题目、分类、标签" class="headerlink" title="文字设置题目、分类、标签"></a>文字设置题目、分类、标签</h3><p>在Markdown文件的开头添加，你的文章头部都应该包含<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 你的题目</span><br><span class="line">tags: 你的标签</span><br><span class="line">category: 你的分类</span><br><span class="line">---</span><br></pre></td></tr></table></figure></div></p>
+<h3 id="category设置注意事项"><a href="#category设置注意事项" class="headerlink" title="category设置注意事项"></a>category设置注意事项</h3><p>Hexo默认生成的目录为year/month/day/title/可以修改为category/title/，<br>在主配置文件中修改permalink即可<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#permalink: :year/:month/:day/:title/</span><br><span class="line">permalink: :category/:title/</span><br></pre></td></tr></table></figure></div></p>
 <p>另外category的名称建议不要用js、css、images等</p>
 <h3 id="Hexo渲染时排除部分文件或目录"><a href="#Hexo渲染时排除部分文件或目录" class="headerlink" title="Hexo渲染时排除部分文件或目录"></a>Hexo渲染时排除部分文件或目录</h3><p>主配置文件_config文件中提供了skip_render过滤配置</p>
 <h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>只有source目录下的文件才会发布到public（能够在网络上访问到），因此Hexo只渲染source目录下的文件。skip_render参数设置的路径是相对于source目录的路径。</p>
-<h4 id="设置排除项"><a href="#设置排除项" class="headerlink" title="设置排除项"></a>设置排除项</h4><p>假设source目录下的文件如以下目录树所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">├─ demo</span><br><span class="line">|  ├─ js-view-size</span><br><span class="line">|  |  ├─ 1.html</span><br><span class="line">|  |  └┈ 2.html</span><br><span class="line">|  ├─ other</span><br><span class="line">|  |  ├─ 3.html</span><br><span class="line">|  |  ├─ 4.html</span><br><span class="line">|  |  └┈ 5.md</span><br><span class="line">|  ├─ 6.html</span><br><span class="line">|  └┈ 7.md</span><br><span class="line">├─ sohu.html</span><br><span class="line">└┈ google.html</span><br></pre></td></tr></table></figure></p>
+<h4 id="设置排除项"><a href="#设置排除项" class="headerlink" title="设置排除项"></a>设置排除项</h4><p>假设source目录下的文件如以下目录树所示<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">├─ demo</span><br><span class="line">|  ├─ js-view-size</span><br><span class="line">|  |  ├─ 1.html</span><br><span class="line">|  |  └┈ 2.html</span><br><span class="line">|  ├─ other</span><br><span class="line">|  |  ├─ 3.html</span><br><span class="line">|  |  ├─ 4.html</span><br><span class="line">|  |  └┈ 5.md</span><br><span class="line">|  ├─ 6.html</span><br><span class="line">|  └┈ 7.md</span><br><span class="line">├─ sohu.html</span><br><span class="line">└┈ google.html</span><br></pre></td></tr></table></figure></div></p>
 <h5 id="排除单个文件"><a href="#排除单个文件" class="headerlink" title="排除单个文件"></a>排除单个文件</h5><ul>
 <li><p>排除sohu.html</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: &apos;sohu.html&apos;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: &apos;sohu.html&apos;</span><br></pre></td></tr></table></figure></div>
 </li>
 <li><p>排除3.html</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: &apos;demo/other/3.html&apos;</span><br></pre></td></tr></table></figure>
+<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: &apos;demo/other/3.html&apos;</span><br></pre></td></tr></table></figure></div>
 </li>
 </ul>
 <h5 id="排除多个文件"><a href="#排除多个文件" class="headerlink" title="排除多个文件"></a>排除多个文件</h5><ul>
-<li>排除sohu.html和google.html<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">  - &apos;sohu.html&apos;</span><br><span class="line">  - &apos;google.html&apos;</span><br></pre></td></tr></table></figure>
+<li>排除sohu.html和google.html<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">  - &apos;sohu.html&apos;</span><br><span class="line">  - &apos;google.html&apos;</span><br></pre></td></tr></table></figure></div>
 </li>
 </ul>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: &apos;*.html&apos;</span><br></pre></td></tr></table></figure></p>
-<h5 id="排除source-demo-other目录中的所有html文件"><a href="#排除source-demo-other目录中的所有html文件" class="headerlink" title="排除source/demo/other目录中的所有html文件"></a>排除source/demo/other目录中的所有html文件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: &apos;demo/other/*.html&apos;</span><br></pre></td></tr></table></figure>
-<h5 id="排除baidu-html和google-html以及整个source-demo目录"><a href="#排除baidu-html和google-html以及整个source-demo目录" class="headerlink" title="排除baidu.html和google.html以及整个source/demo目录"></a>排除baidu.html和google.html以及整个source/demo目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">  - &apos;*.html&apos;</span><br><span class="line">  - &apos;demo/**&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="发布到Git"><a href="#发布到Git" class="headerlink" title="发布到Git"></a>发布到Git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>或者<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: &apos;*.html&apos;</span><br></pre></td></tr></table></figure></div></p>
+<h5 id="排除source-demo-other目录中的所有html文件"><a href="#排除source-demo-other目录中的所有html文件" class="headerlink" title="排除source/demo/other目录中的所有html文件"></a>排除source/demo/other目录中的所有html文件</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">skip_render: &apos;demo/other/*.html&apos;</span><br></pre></td></tr></table></figure></div>
+<h5 id="排除baidu-html和google-html以及整个source-demo目录"><a href="#排除baidu-html和google-html以及整个source-demo目录" class="headerlink" title="排除baidu.html和google.html以及整个source/demo目录"></a>排除baidu.html和google.html以及整个source/demo目录</h5><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">skip_render:</span><br><span class="line">  - &apos;*.html&apos;</span><br><span class="line">  - &apos;demo/**&apos;</span><br></pre></td></tr></table></figure></div>
+<h3 id="发布到Git"><a href="#发布到Git" class="headerlink" title="发布到Git"></a>发布到Git</h3><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></div>
 <p>安装 hexo-deployer-git，否则会报 ERROR Deployer not found: git 的错误。<br>仓库地址建议用SSH地址，报错请换http尝试</p>
 <h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><ul>
 <li>购买域名</li>
@@ -404,7 +404,7 @@
 <p>把’README.MD’文件的后缀名改成”MDOWN”然后扔到blog/source文件夹下即可，这样hexo不会解析，github也会将其作为MD文件解析</p>
 </blockquote>
 <h3 id="文章添加代码块有注释时的高亮"><a href="#文章添加代码块有注释时的高亮" class="headerlink" title="文章添加代码块有注释时的高亮"></a>文章添加代码块有注释时的高亮</h3><p>建议对应代码块语法选择相应的注释符号。比如html用<code>&lt;!-- --&gt;</code>,css用<code>/* */</code>，否则可能会出现代码不高亮或者高亮有问题的情况。</p>
-<h3 id="MarkDown里-table-的语法"><a href="#MarkDown里-table-的语法" class="headerlink" title="MarkDown里 table 的语法"></a>MarkDown里 table 的语法</h3><p>MD写法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 链接 | 结果 | 原因 |</span><br><span class="line">|:-----|:---:|----------:|</span><br><span class="line">|文本内容| **`是`** |同协议同域名同端口|</span><br><span class="line">|文本内容| **`是`** |同协议同域名同端口|</span><br><span class="line">|文本内容| **`是`** |同协议同域名同端口|</span><br></pre></td></tr></table></figure></p>
+<h3 id="MarkDown里-table-的语法"><a href="#MarkDown里-table-的语法" class="headerlink" title="MarkDown里 table 的语法"></a>MarkDown里 table 的语法</h3><p>MD写法：<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">| 链接 | 结果 | 原因 |</span><br><span class="line">|:-----|:---:|----------:|</span><br><span class="line">|文本内容| **`是`** |同协议同域名同端口|</span><br><span class="line">|文本内容| **`是`** |同协议同域名同端口|</span><br><span class="line">|文本内容| **`是`** |同协议同域名同端口|</span><br></pre></td></tr></table></figure></div></p>
 <p>输入结果：</p>
 <table>
 <thead>
@@ -433,7 +433,7 @@
 </tbody>
 </table>
 <h3 id="网站优化"><a href="#网站优化" class="headerlink" title="网站优化"></a>网站优化</h3><p><a href="http://www.joryhe.com/2016-06-05-hexo_site_seo_speed_more_optimization.html" target="_blank" rel="noopener">Hexo博客优化</a><br><a href="https://segmentfault.com/a/1190000008082288" target="_blank" rel="noopener">Hexo博客压缩优化</a><br>不过不如gulp来个压缩合并直接有效</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="http://luopq.com/2016/01/17/hexo-tips/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">Hexo技巧收集-不定期更新</a><br><a href="https://www.cnblogs.com/imapla/p/5533000.html" target="_blank" rel="noopener">Hexo 博客部署到 GitHub</a><br><a href="https://segmentfault.com/a/1190000003710962?_ea=336354" target="_blank" rel="noopener">Hexo博客搭建时遇到的一些问题</a><br>[Hexo配置教程]（<a href="http://blog.csdn.net/xuezhisdc/article/details/53130383）" target="_blank" rel="noopener">http://blog.csdn.net/xuezhisdc/article/details/53130383）</a><br>[为NexT主题添加文章阅读量统计功能](<a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud）" target="_blank" rel="noopener">https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud）</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="http://luopq.com/2016/01/17/hexo-tips/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">Hexo技巧收集-不定期更新</a><br><a href="https://www.cnblogs.com/imapla/p/5533000.html" target="_blank" rel="noopener">Hexo 博客部署到 GitHub</a><br><a href="https://segmentfault.com/a/1190000003710962?_ea=336354" target="_blank" rel="noopener">Hexo博客搭建时遇到的一些问题</a><br><a href="http://blog.csdn.net/xuezhisdc/article/details/53130383" target="_blank" rel="noopener">Hexo配置教程</a><br><a href="https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html#%E9%85%8D%E7%BD%AELeanCloud" target="_blank" rel="noopener">为NexT主题添加文章阅读量统计功能</a><br><a href="https://www.w3ctrain.com/2017/12/11/hexo-code-block/" target="_blank" rel="noopener">自定义 Hexo 博客代码块</a></p>
 <h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NexT开始使用</a><br><a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">Hexo配置</a></p>
 
       
@@ -554,7 +554,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -565,7 +565,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -576,7 +576,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -705,60 +705,60 @@
 
   
   
-    <script  type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script  type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script  type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script  type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script  type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script  type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
   
   
-    <script  type="text/javascript" src="/lib/three/three.min.js"></script>
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
   
 
   
   
-    <script  type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 
   
 
 
-  <script  type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
 
-  <script  type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
 
 
-
-  
-  
 
   
-  <script  type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script  type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
 
 
 

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ES6 JS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="新事物也是有两面性的，箭头函数有他的便捷有他的优点，但是他也有缺点，他的优点是代码简洁，this提前定义，但他的缺点也是这些，比如代码太过简洁，导致不好阅读，this提前定义，导致无法使用JS进行一些ES5里面看起来非常正常的操作。 本质来说箭头函数没有自己的this，它的this是派生而来的，根据“词法作用域”派生而来。 由于箭头函数在调用时不会生成自身作用域下的this和arguments值，">
+<meta name="keywords" content="ES6 JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6使用箭头函数注意点">
+<meta property="og:url" content="http://Yankj.github.io/文章-杂谈/ES6使用箭头函数注意点/index.html">
+<meta property="og:site_name" content="等你很久了">
+<meta property="og:description" content="新事物也是有两面性的，箭头函数有他的便捷有他的优点，但是他也有缺点，他的优点是代码简洁，this提前定义，但他的缺点也是这些，比如代码太过简洁，导致不好阅读，this提前定义，导致无法使用JS进行一些ES5里面看起来非常正常的操作。 本质来说箭头函数没有自己的this，它的this是派生而来的，根据“词法作用域”派生而来。 由于箭头函数在调用时不会生成自身作用域下的this和arguments值，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-29T11:36:01.747Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6使用箭头函数注意点">
+<meta name="twitter:description" content="新事物也是有两面性的，箭头函数有他的便捷有他的优点，但是他也有缺点，他的优点是代码简洁，this提前定义，但他的缺点也是这些，比如代码太过简洁，导致不好阅读，this提前定义，导致无法使用JS进行一些ES5里面看起来非常正常的操作。 本质来说箭头函数没有自己的this，它的this是派生而来的，根据“词法作用域”派生而来。 由于箭头函数在调用时不会生成自身作用域下的this和arguments值，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://Yankj.github.io/文章-杂谈/ES6使用箭头函数注意点/"/>
+
+
+
+
+
+  <title>ES6使用箭头函数注意点 | 等你很久了</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">等你很久了</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">愿岁月能安</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Yankj.github.io/文章-杂谈/ES6使用箭头函数注意点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kunjie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="等你很久了">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ES6使用箭头函数注意点</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T18:36:13+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/文章-杂谈/" itemprop="url" rel="index">
+                    <span itemprop="name">文章-杂谈</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/文章-杂谈/ES6使用箭头函数注意点/" class="leancloud_visitors" data-flag-title="ES6使用箭头函数注意点">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>新事物也是有两面性的，箭头函数有他的便捷有他的优点，但是他也有缺点，他的优点是代码简洁，this提前定义，但他的缺点也是这些，比如代码太过简洁，导致不好阅读，this提前定义，导致无法使用JS进行一些ES5里面看起来非常正常的操作。</p>
+<p>本质来说箭头函数没有自己的this，它的this是派生而来的，根据“词法作用域”派生而来。</p>
+<p>由于箭头函数在调用时不会生成自身作用域下的this和arguments值，其持有外部包含它的函数的this值，并且在调用的时候就定下来了，不可动态改变，下面我就总结一下什么情况下不该使用箭头函数。</p>
+<h3 id="在对象上定义函数"><a href="#在对象上定义函数" class="headerlink" title="在对象上定义函数"></a>在对象上定义函数</h3><pre><code>const test = {
+    array: [1, 2, 3],
+    sum: () =&gt; {
+        console.log(this === window); // =&gt; true
+        return this.array.reduce((result, item) =&gt; result + item);
+    }
+};
+test.sum();
+// TypeError: Cannot read property &apos;reduce&apos; of undefined
+</code></pre><p>原因就是，箭头函数没有它自己的this值，箭头函数内的this值继承自外围作用域。</p>
+<p>对象方法内的this指向调用这个方法的对象，如果使用箭头函数，this和对象方法在调用的时候所处环境的this值一致。因为 test.sum()是在全局环境下进行调用，此时this指向全局。</p>
+<p>解决方法也很简单，使用函数表达式或者方法简写（ES6 中已经支持）来定义方法，这样能确保 this 是在运行时是由包含它的上下文决定的。</p>
+<pre><code>const test = {
+    array: [1, 2, 3],
+    sum() {
+        console.log(this === test); // =&gt; true
+        return this.array.reduce((result, item) =&gt; result + item);
+    }
+};
+test.sum();
+// 6
+</code></pre><p>定义原型方法<br>在对象原型上定义函数也是遵循着一样的规则</p>
+<pre><code>function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.sayName = () =&gt; {
+    console.log(this === window); // =&gt; true
+    return this.name;
+};
+
+const cat = new Person(&apos;Mew&apos;);
+cat.sayName(); // =&gt; undefined
+</code></pre><p>使用传统的函数表达式就能解决问题</p>
+<pre><code>function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.sayName = function() {
+    console.log(this === Person); // =&gt; true
+    return this.name;
+};
+
+const cat = new Person(&apos;Mew&apos;);
+cat.sayName(); // =&gt; Mew
+</code></pre><h3 id="定义事件回调函数"><a href="#定义事件回调函数" class="headerlink" title="定义事件回调函数"></a>定义事件回调函数</h3><p>this是JS中非常强大的特点，他让函数可以根据其调用方式动态的改变上下文，然后箭头函数直接在声明时就绑定了this对象，所以不再是动态的。</p>
+<p>在客户端，在DOM元素上绑定事件监听函数是非常普遍的行为，在DOM事件被触发时，回调函数中的this指向该DOM，但是，箭头函数在声明的时候就绑定了执行上下文，要动态改变上下文是不可能的，在需要动态上下文的时候它的弊端就凸显出来:</p>
+<pre><code>const button = document.getElementById(&apos;myButton&apos;);
+button.addEventListener(&apos;click&apos;, () =&gt; {
+    console.log(this === window); // =&gt; true
+    this.innerHTML = &apos;Clicked button&apos;;
+});
+</code></pre><p>因为这个回调的箭头函数是在全局上下文中被定义的，所以他的this是window。换句话说就是，箭头函数预定义的上下文是不能被修改的，这样 this.innerHTML 就等价于 window.innerHTML，而后者是没有任何意义的。</p>
+<p>使用函数表达式就可以在运行时动态的改变 this：</p>
+<pre><code>const button = document.getElementById(&apos;myButton&apos;);
+button.addEventListener(&apos;click&apos;, function() {
+    console.log(this === button); // =&gt; true
+    this.innerHTML = &apos;Clicked button&apos;;
+});
+</code></pre><h3 id="定义构造函数"><a href="#定义构造函数" class="headerlink" title="定义构造函数"></a>定义构造函数</h3><p>如果使用箭头函数会报错。</p>
+<p>显然，箭头函数是不能用来做构造函数。</p>
+<pre><code>const Message = (text) =&gt; {
+    this.text = text;
+};
+const helloMessage = new Message(&apos;Hello World!&apos;);
+// Throws &quot;TypeError: Message is not a constructor&quot;
+</code></pre><p>理论上来说也是不能这么做的，因为箭头函数在创建时this对象就绑定了，更不会指向对象实例。</p>
+<h3 id="太简短的（难以理解）函数"><a href="#太简短的（难以理解）函数" class="headerlink" title="太简短的（难以理解）函数"></a>太简短的（难以理解）函数</h3><p>箭头函数可以让语句写的非常的简洁，但是一个真实的项目，一般由多个开发者共同协作完成，箭头函数有时候并不会让人很好的理解：</p>
+<pre><code>const multiply = (a, b) =&gt; b === undefined ? b =&gt; a * b : a * b;
+const double = multiply(2);
+double(3); // =&gt; 6
+multiply(2, 3); // =&gt; 6
+</code></pre><p>代码看起来很简短，但大多数人第一眼看上去可能无法立即搞清楚它干了什么。</p>
+<p>这个函数的作用就是当只有一个参数a时，返回接受一个参数b返回a*b的函数，接收两个参数时直接返回乘积。</p>
+<p>为了让这个函数更好的让人理解，我们可以为这个箭头函数加一对花括号，并加上return语句，或者直接使用函数表达式：</p>
+<pre><code>function multiply(a, b) {
+    if (b === undefined) {
+        return function(b) {
+            return a * b;
+        }
+    }
+    return a * b;
+}
+
+const double = multiply(2);
+double(3); // =&gt; 6
+multiply(2, 3); // =&gt; 6
+</code></pre><p>毫无疑问，箭头函数带来了很多便利。恰当的使用箭头函数可以让我们避免使用早期的.bind()函数或者需要固定上下文的地方并且让代码更加简洁。</p>
+<p>箭头函数也有一些不便利的地方。我们在需要动态上下文的地方不能使用箭头函数：定义对象方法、定义原型方法、定义构造函数、定义事件回调函数。在其他情况下，请尽情的使用箭头函数。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6-JS/" rel="tag"># ES6 JS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/文章-杂谈/理解script加载的三种方式/" rel="next" title="理解script加载的三种方式">
+                <i class="fa fa-chevron-left"></i> 理解script加载的三种方式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/文章-杂谈/完美打造你的终端/" rel="prev" title="完美打造你的终端">
+                完美打造你的终端 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">kunjie</p>
+              <p class="site-description motion-element" itemprop="description">一个简单写文字的博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在对象上定义函数"><span class="nav-number">1.</span> <span class="nav-text">在对象上定义函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义事件回调函数"><span class="nav-number">2.</span> <span class="nav-text">定义事件回调函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定义构造函数"><span class="nav-number">3.</span> <span class="nav-text">定义构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#太简短的（难以理解）函数"><span class="nav-number">4.</span> <span class="nav-text">太简短的（难以理解）函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kunjie</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("d43zs3fmfwFtRtl1Ch2y0cIC-gzGzoHsz", "5JAvRcqWvoursb8mOVaEH39g");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
