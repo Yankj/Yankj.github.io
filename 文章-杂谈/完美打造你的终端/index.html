@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="等你很久了">
 <meta property="og:description" content="终端这一程序员的装逼神器务必要打扮好，那么下面就简单扼要的说说如何快速美化： 步骤概要 安装zsh 安装oh my zsh 设置主题  主题优选：ys, agnoster 主题设置方法 1vim ~/.zshrc 将ZSH_THEME改成ys 1ZSH_THEME=&amp;quot;ys&amp;quot; 更新配置： 1source ~/.zshrc    设置vscode和webstorm默认终端将设置中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-16T14:17:37.800Z">
+<meta property="og:updated_time" content="2019-04-16T15:07:29.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="完美打造你的终端">
 <meta name="twitter:description" content="终端这一程序员的装逼神器务必要打扮好，那么下面就简单扼要的说说如何快速美化： 步骤概要 安装zsh 安装oh my zsh 设置主题  主题优选：ys, agnoster 主题设置方法 1vim ~/.zshrc 将ZSH_THEME改成ys 1ZSH_THEME=&amp;quot;ys&amp;quot; 更新配置： 1source ~/.zshrc    设置vscode和webstorm默认终端将设置中">
@@ -373,6 +373,13 @@
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 终端在 OS X 上使用的 shell 的路径。</span><br><span class="line">  &quot;terminal.integrated.shell.osx&quot;: &quot;/bin/zsh&quot;,</span><br><span class="line">  // 自定义要在 OS X 上运行的终端应用程序。</span><br><span class="line">  &quot;terminal.external.osxExec&quot;: &quot;iTerm.app&quot;,</span><br><span class="line">  &quot;terminal.integrated.fontFamily&quot;: &quot;Meslo LG M For Powerline&quot;,</span><br></pre></td></tr></table></figure></div>
 </li>
 </ol>
+<h2 id="在终端中使用命令打开vscode、sublime"><a href="#在终端中使用命令打开vscode、sublime" class="headerlink" title="在终端中使用命令打开vscode、sublime"></a>在终端中使用命令打开vscode、sublime</h2><p><a href="https://www.cnblogs.com/hongrunhui/p/5928833.html" target="_blank" rel="noopener">MAC终端命令行下用sublime、vscode、atom打开文件或目录</a><br>简单说就是：</p>
+<ol>
+<li><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><figcaption><span>nano .zshrc```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. 在文件末尾加上</span><br></pre></td></tr></table></figure></div>
+</li>
+</ol>
+<p>alias atom=’/Applications/Atom.app/Contents/MacOS/Atom’<br>alias subl=’/Applications/SublimeText.app/Contents/SharedSupport/bin/subl’<br>alias webstorm=’/Applications/WebStorm.app/Contents/MacOS/webstorm’<br>alias code=’/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code’<br>alias vscode=’/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code’<br>```<br>注意，上面的路径可能会有变化。怎么找到路径详细看文章</p>
+<h2 id="使用nano命令"><a href="#使用nano命令" class="headerlink" title="使用nano命令"></a>使用nano命令</h2><p>用nano命令修改文件：<br>nano是一个小巧自由，并且友好的编辑器，在大部分linux上都有nano命令。相对vi，不熟悉linux的我感觉nano要简单许多：<br>打开后直接编辑，命令如下：<br>sudo nano /etc/hosts<br>完成后按ctrl+x退出，按y保存，回车</p>
 
       
     </div>
@@ -492,7 +499,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -547,7 +554,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤概要"><span class="nav-number">1.</span> <span class="nav-text">步骤概要</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤概要"><span class="nav-number">1.</span> <span class="nav-text">步骤概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在终端中使用命令打开vscode、sublime"><span class="nav-number">2.</span> <span class="nav-text">在终端中使用命令打开vscode、sublime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用nano命令"><span class="nav-number">3.</span> <span class="nav-text">使用nano命令</span></a></li></ol></div>
             
 
           </div>
@@ -567,7 +574,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

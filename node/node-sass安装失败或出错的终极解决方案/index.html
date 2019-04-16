@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="等你很久了">
 <meta property="og:description" content="node-sass装不上？使用淘宝镜像。 macOS 系统直接运行下面的命令即可： 1SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ npm install node-sass  原因是执行默认安装的是3.13.1版本的, 而该版本的编译包链接失效.删除之前默认安装的版本，使用指定版本安装成功. 命令如下: 1cnpm inst">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-21T15:46:05.480Z">
+<meta property="og:updated_time" content="2019-04-16T15:07:29.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node-sass安装失败或出错的终极解决方案">
 <meta name="twitter:description" content="node-sass装不上？使用淘宝镜像。 macOS 系统直接运行下面的命令即可： 1SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ npm install node-sass  原因是执行默认安装的是3.13.1版本的, 而该版本的编译包链接失效.删除之前默认安装的版本，使用指定版本安装成功. 命令如下: 1cnpm inst">
@@ -365,6 +365,16 @@
 <p>这样使用 npm install 安装 node-sass、electron 和 phantomjs 时都能自动从淘宝源上下载，但是在使用 npm publish 的时候要把 registry 这一行给注释掉，否则就会发布到淘宝源上去了。<br><a href="https://github.com/lmk123/blog/issues/28" target="_blank" rel="noopener">更多&gt;&gt;</a></p>
 </li>
 </ul>
+<h3 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h3><ul>
+<li>报错如下时如何解决？<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt; node-sass@4.10.0 install /Users/kunjie/workspace/fe-fin-data-com-era/node_modules/node-sass</span><br><span class="line">&gt; node scripts/install.js</span><br><span class="line"></span><br><span class="line">Unable to save binary /Users/kunjie/workspace/fe-fin-data-com-era/node_modules/node-sass/vendor/darwin-x64-57 : &#123; Error: EACCES: permission denied, mkdir &apos;/Users/kunjie/workspace/fe-fin-data-com-era/node_modules/node-sass/vendor&apos;</span><br><span class="line">    at Object.fs.mkdirSync (fs.js:885:18)</span><br><span class="line">    at sync (/Users/kunjie/workspace/fe-fin-data-com-era/node_modules/mkdirp/index.js:71:13)</span><br><span class="line">    at Function.sync (/Users/kunjie/workspace/fe-fin-data-com-era/node_modules/mkdirp/index.js:77:24)</span><br><span class="line">    at checkAndDownloadBinary (/Users/kunjie/workspace/fe-fin-data-com-era/node_modules/node-sass/scripts/install.js:114:11)</span><br><span class="line">    at Object.&lt;anonymous&gt; (/Users/kunjie/workspace/fe-fin-data-com-era/node_modules/node-sass/scripts/install.js:157:1)</span><br><span class="line">    at Module._compile (module.js:652:30)</span><br><span class="line">    at Object.Module._extensions..js (module.js:663:10)</span><br><span class="line">    at Module.load (module.js:565:32)</span><br><span class="line">    at tryModuleLoad (module.js:505:12)</span><br><span class="line">    at Function.Module._load (module.js:497:3)</span><br><span class="line">  errno: -13,</span><br><span class="line">  code: &apos;EACCES&apos;,</span><br><span class="line">  syscall: &apos;mkdir&apos;,</span><br><span class="line">  path: &apos;/Users/kunjie/workspace/fe-fin-data-com-era/node_modules/node-sass/vendor&apos; &#125;</span><br><span class="line"></span><br><span class="line">&gt; node-sass@4.10.0 postinstall /Users/kunjie/workspace/fe-fin-data-com-era/node_modules/node-sass</span><br><span class="line">&gt; node scripts/build.js</span><br></pre></td></tr></table></figure></div>
+</li>
+</ul>
+<ol>
+<li>在命令前加上 sudo<br>sudo npm install –save-dev node-sass </li>
+<li>不过这样子可能还是不行，你需要这样：<br>sudo npm install –unsafe-perm=true –save-dev node-sass</li>
+<li>或许你还是会遇到错误，请尝试这样：</li>
+</ol>
+<p>sudo npm install –unsafe-perm=true –allow-root –save-dev  node-sass</p>
 
       
     </div>
@@ -484,7 +494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#node-sass装不上？使用淘宝镜像。"><span class="nav-number">1.</span> <span class="nav-text">node-sass装不上？使用淘宝镜像。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#node-sass装不上？使用淘宝镜像。"><span class="nav-number">1.</span> <span class="nav-text">node-sass装不上？使用淘宝镜像。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QA"><span class="nav-number"></span> <span class="nav-text">QA</span></a></div>
             
 
           </div>
@@ -559,7 +569,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
