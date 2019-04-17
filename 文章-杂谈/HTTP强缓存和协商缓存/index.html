@@ -381,7 +381,7 @@
 </li>
 </ul>
 <h2 id="HTTP-1-0-基于Pragma-amp-Expires的缓存实现"><a href="#HTTP-1-0-基于Pragma-amp-Expires的缓存实现" class="headerlink" title="HTTP 1.0: 基于Pragma&amp;Expires的缓存实现"></a>HTTP 1.0: 基于Pragma&amp;Expires的缓存实现</h2><p>Pragma和Expires都是http1.0的遗留物</p>
-<h4 id="Pragma"><a href="#Pragma" class="headerlink" title="Pragma"></a>Pragma</h4><p>当该字段值为“no-cache”的时候（事实上现在RFC中也仅标明该可选值），禁止缓存，即每次都得向服务器发请求；<br>使用时我们常常在html上加meta标签（仅对该页面文档有效，对页面上的资源无效）：<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Pragma"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span></span><br></pre></td></tr></table></figure></div></p>
+<h4 id="Pragma"><a href="#Pragma" class="headerlink" title="Pragma"></a>Pragma</h4><p>当该字段值为“no-cache”的时候（事实上现在RFC中也仅标明该可选值），禁止缓存，即每次都得向服务器发请求；<br>使用时我们常常在html上加meta标签（仅对该页面文档有效，对页面上的资源无效）：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Pragma"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>需要注意的是：</p>
 <blockquote>
 <ol>
@@ -391,7 +391,7 @@
 </li>
 </ol>
 </blockquote>
-<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>Pragma来禁用缓存,Expire来启用缓存和定义缓存时间（GMT（格林尼治时间））；<br>同样可以使用meta标签来知会IE（也仅有IE能识别）页面（同样也只对页面有效，对页面上的资源无效）缓存时间：<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"expires"</span> <span class="attr">content</span>=<span class="string">"mon, 18 apr 2016 14:30:00 GMT"</span>&gt;</span></span><br></pre></td></tr></table></figure></div></p>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>Pragma来禁用缓存,Expire来启用缓存和定义缓存时间（GMT（格林尼治时间））；<br>同样可以使用meta标签来知会IE（也仅有IE能识别）页面（同样也只对页面有效，对页面上的资源无效）缓存时间：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"expires"</span> <span class="attr">content</span>=<span class="string">"mon, 18 apr 2016 14:30:00 GMT"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>“content”的值为“-1”或“0”时告诉IE不走缓存。</p>
 <ul>
 <li>缺点<br>响应报文中Expires所定义的缓存时间是相对服务器上的时间而言的，其定义的是资源“失效时刻”，如果客户端上的时间跟服务器上的时间不一致，就会导致缓存混乱。</li>
@@ -555,7 +555,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -566,7 +566,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

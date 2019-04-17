@@ -88,10 +88,10 @@
 <meta property="og:description" content="whistle是什么?抓包工具？代理工具？调试工具？它都是。 whistle是基于Node实现的跨平台web调试代理工具，有以下基本功能：  查看HTTP、HTTPS请求响应内容 查看WebSocket、Socket收发的帧数据 设置请求hosts、上游http/socks代理 修改请求url、方法、头部、内容 修改响应状态码、头部、内容，并支持本地替换 修改WebSocket或Socket收发的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yankj.github.io/images/whistle.png">
-<meta property="og:image" content="http://yankj.github.io/images/log">
-<meta property="og:image" content="http://yankj.github.io/images/weinre">
-<meta property="og:image" content="http://yankj.github.io/images/vConsole">
-<meta property="og:updated_time" content="2019-04-17T16:39:40.500Z">
+<meta property="og:image" content="https://image-static.segmentfault.com/203/898/2038981056-5a195f7cd7914_articlex">
+<meta property="og:image" content="https://image-static.segmentfault.com/409/123/4091232714-5a195f75a16c1_articlex">
+<meta property="og:image" content="https://image-static.segmentfault.com/131/797/1317978529-5a195f7258c25_articlex">
+<meta property="og:updated_time" content="2019-04-17T16:48:43.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端调试终极利器whistle">
 <meta name="twitter:description" content="whistle是什么?抓包工具？代理工具？调试工具？它都是。 whistle是基于Node实现的跨平台web调试代理工具，有以下基本功能：  查看HTTP、HTTPS请求响应内容 查看WebSocket、Socket收发的帧数据 设置请求hosts、上游http/socks代理 修改请求url、方法、头部、内容 修改响应状态码、头部、内容，并支持本地替换 修改WebSocket或Socket收发的">
@@ -398,13 +398,13 @@
 <li>在rules中配置<code>m.baidu.com log://</code>,<code>control/command + s</code>保存后即可在访问m.baidu.com时，在whistle右侧log面板看到m.baidu.com页面输出的日志。</li>
 <li><p>插入脚本<br>如果你想同时注入js脚本，可以在rules配置：</p>
 <div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 在mac或linux加载本地js文件/User/xxx/test.js</span><br><span class="line">m.baidu.com log:///User/xxx/test.js</span><br><span class="line"># 在windows上加载本地js文件D:\xxx\test.js</span><br><span class="line">m.baidu.com log://D:\xxx\test.js</span><br><span class="line"># 直接从whistle的Values配置的key-value里面获取脚本</span><br><span class="line">m.baidu.com log://&#123;test.js&#125;</span><br></pre></td></tr></table></figure></div>
-<p>whistle的Values参见：<a href="https://avwo.github.io/whistle/webui/values.html" target="_blank" rel="noopener">https://avwo.github.io/whistle/webui/values.html</a><br><img src="/images/log" alt="image"></p>
+<p>whistle的Values参见：<a href="https://avwo.github.io/whistle/webui/values.html" target="_blank" rel="noopener">https://avwo.github.io/whistle/webui/values.html</a><br><img src="https://image-static.segmentfault.com/203/898/2038981056-5a195f7cd7914_articlex" alt="image"></p>
 </li>
 </ul>
 <h4 id="利用whistle查看、修改页面的DOM结构及其样式"><a href="#利用whistle查看、修改页面的DOM结构及其样式" class="headerlink" title="利用whistle查看、修改页面的DOM结构及其样式"></a>利用whistle查看、修改页面的DOM结构及其样式</h4><p>whistle集成了weinre的功能，同样只需配置一条规则即可通过在pc上通过weinre修改网页的DOM结构及其样式：<br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.baidu.com weinre://test</span><br></pre></td></tr></table></figure></div></p>
-<p>test只是作为weinre的分类,从whistle顶部的weinre入口即可进入weinre，调试远程m.baidu.com页面<br><img src="/images/weinre" alt="image"></p>
+<p>test只是作为weinre的分类,从whistle顶部的weinre入口即可进入weinre，调试远程m.baidu.com页面<br><img src="https://image-static.segmentfault.com/409/123/4091232714-5a195f75a16c1_articlex" alt="image"></p>
 <h4 id="利用whistle注入vConsole"><a href="#利用whistle注入vConsole" class="headerlink" title="利用whistle注入vConsole"></a>利用whistle注入vConsole</h4><p>vConsole是微信团队开发的轻量、可拓展、针对手机网页的前端开发者调试面板，主要原理是通过在页面注入js实现模拟PC浏览器的Console功能，这边利用whistle的js协议往指定网页(<a href="https://m.baidu.com/)注入vConsole.js，配置whistle规则：" target="_blank" rel="noopener">https://m.baidu.com/)注入vConsole.js，配置whistle规则：</a><br><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">m.baidu.com js://&#123;vConsole.js&#125;</span><br></pre></td></tr></table></figure></div></p>
-<p><img src="/images/vConsole" alt="image"><br>注意： vConsole和weinre不能同时使用</p>
+<p><img src="https://image-static.segmentfault.com/131/797/1317978529-5a195f7258c25_articlex" alt="image"><br>注意： vConsole和weinre不能同时使用</p>
 <h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><ul>
 <li><a href="https://github.com/avwo/whistle" target="_blank" rel="noopener">whistle</a></li>
 <li><a href="https://segmentfault.com/a/1190000012159690" target="_blank" rel="noopener">利用whistle调试移动端页面</a></li>
@@ -539,7 +539,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -550,7 +550,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
