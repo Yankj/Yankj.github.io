@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="等你很久了">
 <meta property="og:description" content="没装nginx?brew install nginx本地装nginx,so easy移动端调试先说说移动端调试，常用的工具/方法： vconsole weinre spy-debugger eruda https://github.com/avwo/whistle chrome远程调试 fiddler/charles 抓包/代理那么nginx能做什么如果你用过上面几种方法，你会发现常常需要在项目">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T15:42:54.136Z">
+<meta property="og:updated_time" content="2019-04-17T13:02:31.601Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx帮你插入vconsole调试">
 <meta name="twitter:description" content="没装nginx?brew install nginx本地装nginx,so easy移动端调试先说说移动端调试，常用的工具/方法： vconsole weinre spy-debugger eruda https://github.com/avwo/whistle chrome远程调试 fiddler/charles 抓包/代理那么nginx能做什么如果你用过上面几种方法，你会发现常常需要在项目">
@@ -368,7 +368,7 @@
 </ol>
 </li>
 </ul>
-<p>无疑，上述方法都有点弄脏弄项目代码。</p>
+<p>无疑，上述方法都有点弄脏项目代码。</p>
 <ul>
 <li>那么nginx能解决么？看看这段nginx配置：<div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAIN"><figure class="iseeu highlight /plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">location  /  &#123;</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    set  $injected  &apos;&lt;script src=&quot;//cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js&quot;&gt;&lt;/script&gt;&lt;script&gt;var vconsole = new Vconsole()&lt;/script&gt;&apos;;</span><br><span class="line"></span><br><span class="line">    sub_filter  &apos;&lt;body&gt;&apos;  &apos;&lt;body&gt;$&#123;injected&#125;&apos;;</span><br><span class="line"></span><br><span class="line">    sub_filter_types *;</span><br><span class="line"></span><br><span class="line">    sub_filter_once on;</span><br><span class="line">    #sub_filter 一行代码前面是需要替换的内容，后面单引号内是替换成的内容。</span><br><span class="line">    #sub_filter_once 意思是只查找并替换一次。on是开启此功能，off是关闭——默认值是on。</span><br><span class="line">    #sub_filter_types 一行意思是选定查找替换文件类型为文本型。也可以不加此行，因为默认只查找text/html文件。</span><br><span class="line">    #sub_filter模块可以用在http, server, location模块中。主要作用就是查找替换文件字符。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
 </li>
@@ -381,6 +381,8 @@
 </ul>
 </li>
 </ul>
+<p>其实，这只是向插入脚本的一种方式，更适合向页面中插入统计项目error、pv等这样等业务无关，但长期需要的脚本；</p>
+<p>对于debugg的场景，用whistle也可以达到目的，而且调试更方便。<br>详细请看whistle相关文章。</p>
 
       
     </div>
@@ -490,7 +492,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -501,7 +503,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -512,7 +514,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -579,7 +581,6 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
