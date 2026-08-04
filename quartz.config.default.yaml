@@ -101,9 +101,9 @@ plugins:
   - source: "@quartz-community/quartz-fonts"
     enabled: true
   - source: "@quartz-themes/core"
-    enabled: false
+    enabled: true
     options:
-      theme: tokyo-night
+      theme: macos
       mode: both
   - source: "@quartz-community/remove-draft"
     enabled: true
