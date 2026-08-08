@@ -103,3 +103,10 @@ Agent 不能像传统后端那样"重跑一遍就复现"，所以你需要一双
 3. 用 **OTel 语义约定 + Langfuse** 之类的平台落地，把树可视化。
 
 下一次你的 Agent 任务又卡了 8 秒，你要做的不是盯着进度条发呆，而是打开 Trace，看那棵树——卡在哪一步，一眼便知。
+
+## 参考来源
+
+- [OpenTelemetry](https://opentelemetry.io/) — 可观测性标准，GenAI 语义约定
+- [Langfuse](https://langfuse.com/) — OTel-native 的 LLM/Agent 可观测平台
+- [Jaeger](https://www.jaegertracing.io/) — 分布式链路追踪 UI
+- [Grafana](https://grafana.com/) — 可观测性可视化平台

@@ -231,3 +231,8 @@ CrewAI 在文档中用粗体写了一句：
 | 什么适合做 Tool | 有明确输入输出、原子操作、模型需自主判断何时使用的能力 |
 | 两者关系 | 互补——Skill 指导推理，Tool 提供能力，一个能力可以同时以两种形态存在 |
 | 能不能只用一种 | 不能——只有 Skill 没有 Tool，模型无法查询和写入数据；只有 Tool 没有 Skill，模型不知道遵循什么规则 |
+
+## 参考来源
+
+- [CrewAI 文档](https://docs.crewai.com/) — "Skills are NOT tools" 官方说明
+- [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) — `Agent.as_tool()` 设计

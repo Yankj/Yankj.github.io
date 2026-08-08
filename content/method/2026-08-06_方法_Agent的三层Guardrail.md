@@ -2,9 +2,9 @@
 publish: true
 ---
 
-# 给 Agent 装一道安检门：三层 Guardrail 从概念到代码
+# Agent Guardrail：三层护栏从概念到代码
 
-> 当 Agent 能自主调用工具、自己跑几轮循环之后，它就不再只是"问答机器"，而是一个会行动的实体。会行动，就意味着会踩进陷阱。本文用「机场安检」这个比喻，讲清生产级 Agent 必须有的三层 Guardrail（护栏）——从为什么不能只靠 System Prompt，到每一层怎么用代码落地。
+> 当 Agent 能自主调用工具、自己跑几轮循环之后，它就不再只是"问答机器"，而是一个会行动的实体。会行动，就意味着会踩进陷阱。本文讲清生产级 Agent 必须有的三层 Guardrail（护栏）——从为什么不能只靠 System Prompt，到每一层怎么用代码落地。
 
 ## 你的 Agent 起飞了，但机场没有安检
 
@@ -152,3 +152,11 @@ Guardrail 不是踩刹车，而是**在每一道入口把风险筛掉**。记住
 3. **High-Risk Guardrail**——高危物品开箱，人工确认不可逆操作。
 
 一座安全的机场，靠的不是牌子上的警告，而是每一道货真价实的安检门。Agent 也一样。
+
+## 参考来源
+
+- [OWASP Top 10 for LLM Applications 2025](https://genai.owasp.org/) — Prompt 注入列为 LLM01 头号漏洞
+- [Zod](https://zod.dev) — TypeScript Schema 校验库
+- [LlamaGuard](https://github.com/meta-llama/PurpleLlama) — Meta 的输入/输出安全分类器
+- [Guardrails AI](https://www.guardrailsai.com/) — Guardrail 框架
+- [NVIDIA NeMo Guardrails](https://github.com/NVIDIA/NeMo-Guardrails) — 开源 Guardrail 工具包
