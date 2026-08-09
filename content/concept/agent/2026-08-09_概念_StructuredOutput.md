@@ -1,17 +1,13 @@
 ---
+publish: true
 title: "2026-08-09 Structured Output：从 Prompt 劝说到 Token 物理拦截"
 date: "2026-08-09"
 modified: "2026-08-09"
-publish: true
 section: knowledge
 knowledgeType: concept
 category: ai
-content_type: "concept"
-domain: "AI Agent"
-certainty: "Working"
-tags: [Structured Output, JSON Schema, Zod, Grammar-Guided Sampling, generateObject]
+tags: [structured-output, json-schema, zod, grammar-guided-sampling, generate-object]
 ---
-# 2026-08-09 Structured Output：从 Prompt 劝说到 Token 物理拦截
 
 你跟 LLM 说"请严格返回 JSON 格式"，它偶尔给你加个 ` ```json ` 代码块，或者把数组字段返回成逗号分隔的字符串。`JSON.parse()` 直接崩溃。
 
@@ -28,6 +24,15 @@ tags: [Structured Output, JSON Schema, Zod, Grammar-Guided Sampling, generateObj
 | **无物理层保障** | Prompt 是"建议"不是"约束"，LLM 可以无视 | 只能事后 try-catch + 重试，永远无法 100% 杜绝 |
 
 核心问题在于：**Prompt 约束发生在概率层，不是物理层。** LLM 生成每个 Token 时，采样器根据概率分布选词，Prompt 只是在影响概率分布，不是在硬性拦截。
+
+要理解 Structured Output 怎么做到物理层拦截，需要先看清 LLM 输出一个 Token 经过的完整管线：
+
+1. **Hidden State（隐状态向量）**：Transformer 多层 Self-Attention 计算后，最后一层产出一个高维上下文向量 $h_{last}$——它凝聚了前面所有文本的语义与逻辑。
+2. **Logits（点积 = 方向相近度）**：LM Head 将 $h_{last}$ 与全词表中每个 Token 的权重向量 $v_i$ 做**点积**。几何本质是：$h_{last}$ 与 $v_i$ 的方向越一致（夹角越小），点积 Logit$_i$ 越大——这个 Token 就越可能是模型的"意图"。
+3. **Softmax → 概率分布**：Logits 经 Softmax 归一化为全词表概率分布（所有 Token 的概率之和为 1）。
+4. **采样**：采样器根据 Temperature / Top-k / Top-p 参数，从概率分布中选出一个 Token。
+
+> **Structured Output 的拦截点就在第 4 步**：采样器在从概率分布中选词之前，先用 JSON Schema 检查——这个 Token 放进当前序列会不会破坏 JSON 结构？如果会，直接把该 Token 的概率置零，不采样。不合法的 Token **根本不会被生成出来**。
 
 ## Grammar-Guided Sampling：Token 采样时的物理拦截
 
