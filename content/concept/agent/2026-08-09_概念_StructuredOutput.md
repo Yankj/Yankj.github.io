@@ -1,15 +1,17 @@
 ---
-title: "Structured Output：从 Prompt 劝说到 Token 物理拦截"
+title: "2026-08-09 Structured Output：从 Prompt 劝说到 Token 物理拦截"
+date: "2026-08-09"
+modified: "2026-08-09"
 publish: true
+section: knowledge
+knowledgeType: concept
+category: ai
 content_type: "concept"
 domain: "AI Agent"
 certainty: "Working"
 tags: [Structured Output, JSON Schema, Zod, Grammar-Guided Sampling, generateObject]
-整理日期: "2026-08-09"
-更新日期: "2026-08-09"
 ---
-
-# Structured Output：从 Prompt 劝说到 Token 物理拦截
+# 2026-08-09 Structured Output：从 Prompt 劝说到 Token 物理拦截
 
 你跟 LLM 说"请严格返回 JSON 格式"，它偶尔给你加个 ` ```json ` 代码块，或者把数组字段返回成逗号分隔的字符串。`JSON.parse()` 直接崩溃。
 

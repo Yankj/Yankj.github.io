@@ -1,8 +1,14 @@
 ---
 publish: true
+title: "2026-08-09 Playwright：Agent 为什么需要\"手和眼\"来操控浏览器"
+date: "2026-08-09"
+modified: "2026-08-09"
+section: knowledge
+knowledgeType: tool
+category: engineering
+tags: [playwright, browser-automation, agent]
 ---
-
-# Playwright：Agent 为什么需要"手和眼"来操控浏览器
+# 2026-08-09 Playwright：Agent 为什么需要"手和眼"来操控浏览器
 
 > 你可能注意到了：几乎每篇 Agent 开发的文章里都会提到 Playwright。一个浏览器自动化测试框架，为什么在 AI Agent 领域反复出现？这篇文章从 Puppeteer 到 Playwright 的演进讲起，拆解 Playwright 在 Agent 架构中扮演的角色——以及一个正在兴起的实践：用 Agent 驱动 Playwright 做自动化测试。
 

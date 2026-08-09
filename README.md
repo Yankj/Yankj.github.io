@@ -37,6 +37,9 @@
 - **托管**：GitHub Pages（Actions 部署模式）
 - **自动化**：两条 GitHub Actions 流水线——`sync-to-blog`（从知识库同步）与 `deploy`（构建部署）
 - **`content/index.md`**：手动维护的精选首页，不会被同步流水线覆盖
+- **内容分类**：`section`（实践/知识）+ `knowledgeType`（概念/工具/方法等）+ `category`（主题域）+ `tags`（自由标签）
+- **统计与评论**：Quartz 内置 analytics 接入位 + `@quartz-community/comments`（Giscus），配置说明见 [`docs/feature-setup.md`](docs/feature-setup.md)
+- **内容校验**：`npm run validate:content`；存量与增量文章统一强校验，规则见 [`docs/content-model.md`](docs/content-model.md)
 
 ### 本地预览
 

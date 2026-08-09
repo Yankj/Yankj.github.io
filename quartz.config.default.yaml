@@ -5,6 +5,8 @@ configuration:
   enableSPA: true
   enablePopovers: true
   analytics:
+    # 统计接入位：拿到分析服务的站点 ID 后再启用，避免把无效脚本发布到生产环境。
+    # 推荐 GoatCounter（轻量、隐私友好）：provider: goatcounter + websiteId: <site-code>
     provider: null
   locale: zh-CN
   baseUrl: Yankj.github.io
@@ -167,7 +169,7 @@ plugins:
       position: beforeBody
       priority: 20
   - source: "@quartz-community/tag-list"
-    enabled: false
+    enabled: true
     layout:
       position: beforeBody
       priority: 30
@@ -195,13 +197,25 @@ plugins:
       priority: 5
       condition: not-index
   - source: "@quartz-community/comments"
+    # Giscus 需要先在 GitHub Discussions 与 giscus.app 完成初始化，再填 options。
     enabled: false
     options:
       provider: giscus
-      options: {}
+      options:
+        # repo: Yankj/Yankj.github.io
+        # repoId: ""
+        # category: Announcements
+        # categoryId: ""
+        # mapping: pathname
+        # strict: 0
+        # reactionsEnabled: 1
+        # emitMetadata: 0
+        # inputPosition: bottom
+        # lang: zh-CN
     layout:
       position: afterBody
       priority: 10
+      condition: not-index
   - source: "@quartz-community/footer"
     enabled: true
     options:
@@ -232,6 +246,9 @@ plugins:
         - description
         - tags
         - aliases
+        - section
+        - knowledgeType
+        - category
       excludedProperties: []
       hidePropertiesView: false
       delimiters: ---

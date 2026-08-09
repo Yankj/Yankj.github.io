@@ -1,8 +1,14 @@
 ---
 publish: true
+title: "2026-08-06 Agent Guardrail：三层护栏从概念到代码"
+date: "2026-08-06"
+modified: "2026-08-06"
+section: practice
+knowledgeType: method
+category: ai
+tags: [agent, guardrail, security]
 ---
-
-# Agent Guardrail：三层护栏从概念到代码
+# 2026-08-06 Agent Guardrail：三层护栏从概念到代码
 
 > 当 Agent 能自主调用工具、自己跑几轮循环之后，它就不再只是"问答机器"，而是一个会行动的实体。会行动，就意味着会踩进陷阱。本文讲清生产级 Agent 必须有的三层 Guardrail（护栏）——从为什么不能只靠 System Prompt，到每一层怎么用代码落地。
 
