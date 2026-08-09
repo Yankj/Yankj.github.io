@@ -64,6 +64,9 @@ plugins:
       enableInHtmlEmbed: false
       enableCheckbox: true
     order: 30
+  - source: "./custom-plugins/mermaid-selfhost"
+    enabled: true
+    order: 35
   - source: "@quartz-community/github-flavored-markdown"
     enabled: true
     order: 40
