@@ -79,9 +79,9 @@ for (const path of walk(root)) {
   }
 
   const title = fieldValue(frontmatter, "title")
-  const h1 = source.match(/^#\s+(.+)$/m)?.[1].trim()
-  if (!h1) error(errors, `${relativePath}: published article must contain an H1 title`)
-  if (title && h1 && title !== h1) error(errors, `${relativePath}: frontmatter title must match the H1 title`)
+  // The sync pipeline (kj-knowledge scripts/collect-published.mjs) strips the source H1;
+  // the page title is rendered from frontmatter `title` by the Quartz title plugin, so we
+  // validate the title against the filename date instead of requiring an in-body H1.
   if (title && !title.startsWith(`${publishedDate} `)) {
     error(errors, `${relativePath}: rendered title must start with '${publishedDate} '`)
   }
