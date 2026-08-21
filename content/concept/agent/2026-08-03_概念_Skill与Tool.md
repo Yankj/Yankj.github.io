@@ -8,7 +8,6 @@ knowledgeType: concept
 category: ai
 tags: [agent, skill, tool, architecture]
 ---
-# 2026-08-03 Skill 与 Tool：Agent 运行时中的两种能力
 
 > 本文以 Career Agent 项目为实际案例，讲清楚 Skill 和 Tool 在 Agent 运行机制中的定位差异、各自的适用边界，以及如何判断一个能力应该封装成 Skill 还是 Tool。
 

@@ -8,7 +8,6 @@ knowledgeType: method
 category: ai
 tags: [agent, observability, tracing]
 ---
-# 2026-08-06 Trace 可观测性：Agent 长任务卡住时，教你一步步排查
 
 > Agent 在后台时，你完全看不见它在干什么。它调用了哪些工具、哪一步最慢、哪一轮的上下文撑爆了——全都是黑盒。如果任务跑了很久却卡住、变慢、结果不对，你从哪下手查？本文讲清 Trace（链路追踪）怎么把 Agent 的动态执行变成一棵可排查的调用树。
 
