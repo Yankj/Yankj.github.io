@@ -11,46 +11,54 @@ Principles:
 - Quiet structure, strong hierarchy, almost no decorative chrome.
 - Warm, tactile surfaces instead of pure white or pure black.
 - Violet communicates action and navigation; ember is used sparingly for emphasis.
-- Reading comes first: 68–74 characters per line, 1.75 body line height, clear focus states.
+- Reading comes first: 65–72 characters per line, 1.72 body line height, clear focus states.
+- The layout is intentionally asymmetric: a narrow library rail, a generous reading column, and a quiet context rail.
+- One 2px-stroke outline icon language is used for every utility control.
 - Motion is subtle, 160–320ms, and disabled when reduced motion is requested.
 
 ## Core tokens
 
 | Role              |     Light |      Dark |
 | ----------------- | --------: | --------: |
-| Canvas            | `#f4f1ea` | `#111217` |
-| Surface           | `#fbfaf6` | `#191a20` |
-| Raised surface    | `#ffffff` | `#202129` |
-| Ink               | `#17181e` | `#f1eee7` |
-| Muted ink         | `#5f626c` | `#b2b2b0` |
-| Faint ink         | `#85868d` | `#858790` |
-| Border            | `#d8d4ca` | `#30323b` |
-| Border strong     | `#beb9ae` | `#484b57` |
-| Twilight / action | `#5b57d9` | `#9a97ff` |
-| Ember / emphasis  | `#bd6546` | `#ef9874` |
+| Canvas            | `#f6f4ef` | `#111217` |
+| Surface           | `#fcfbf8` | `#18191f` |
+| Raised surface    | `#ffffff` | `#202127` |
+| Ink               | `#1b1c22` | `#f3f0e9` |
+| Muted ink         | `#585b64` | `#b8b6b1` |
+| Faint ink         | `#6b6e77` | `#92939a` |
+| Border            | `#dfdcd4` | `#2d2f37` |
+| Border strong     | `#c5c1b8` | `#444751` |
+| Twilight / action | `#5652c7` | `#aaa7ff` |
+| Ember / emphasis  | `#b95f42` | `#f09a77` |
 
 ## Typography
 
 - Display and headings: `Inter`, system sans fallback.
 - Body and Chinese text: `Noto Sans SC`, system sans fallback.
 - Code and labels: `IBM Plex Mono`, system monospace fallback.
-- Display tracking: `-0.045em`; body tracking: `0`; labels: `0.08em`.
+- Display tracking: `-0.04em`; body tracking: `-0.006em`; labels: `0.08em`.
+- Article titles cap at `54.4px`; the home statement alone may reach `83.2px`.
 
 ## Scale
 
 - Spacing: `4, 8, 12, 16, 24, 32, 48, 72px`.
 - Radius: `4, 8, 14, 20px`, plus pill `999px`.
-- Content measure: `72ch`; compact measure: `58ch`.
+- Content measure: `70ch`; compact measure: `56ch`.
+- Desktop columns: `256 / 736 / 224px` maximum, with responsive gaps.
 - Shadows are soft and neutral; borders carry most of the hierarchy.
 
 ## Component rules
 
-- Navigation tools are compact pill controls with a 1px border.
+- Navigation tools use a shared 40px control height, restrained pills, and consistent outline icons.
 - Active navigation uses a tinted violet surface plus an inset indicator.
 - Cards and code blocks use the surface token, 14px radius, and a quiet border.
 - Inline links retain an underline; navigation links do not.
 - Tags are small outlined pills, never filled saturated badges.
 - Images use a 14px radius and a one-pixel border.
+- The home page suppresses duplicate body H1, properties, and reading metadata so the opening statement owns the first viewport.
+- Article breadcrumbs show hierarchy only; the current-page segment is omitted because the title immediately follows it.
+- Frontmatter remains indexed but its default property table is hidden; dates and tags carry visible metadata.
+- Search uses a single-column result list with two-line summaries; the empty default preview pane is disabled.
 
 ## Accessibility and delivery
 

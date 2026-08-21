@@ -9,7 +9,7 @@ configuration:
     # 推荐 GoatCounter（轻量、隐私友好）：provider: goatcounter + websiteId: <site-code>
     provider: null
   locale: zh-CN
-  baseUrl: Yankj.github.io
+  baseUrl: yankj.github.io
   ignorePatterns:
     - private
     - templates
@@ -23,24 +23,24 @@ configuration:
       code: IBM Plex Mono
     colors:
       lightMode:
-        light: "#f4f1ea"
-        lightgray: "#dedad0"
-        gray: "#99978f"
-        darkgray: "#44464f"
-        dark: "#17181e"
-        secondary: "#5b57d9"
-        tertiary: "#bd6546"
-        highlight: "rgba(91, 87, 217, 0.11)"
+        light: "#f6f4ef"
+        lightgray: "#dfdcd4"
+        gray: "#6b6e77"
+        darkgray: "#585b64"
+        dark: "#1b1c22"
+        secondary: "#5652c7"
+        tertiary: "#b95f42"
+        highlight: "rgba(86, 82, 199, 0.09)"
         textHighlight: "rgba(224, 150, 93, 0.34)"
       darkMode:
         light: "#111217"
-        lightgray: "#2c2e36"
-        gray: "#747780"
-        darkgray: "#c8c7c2"
-        dark: "#f1eee7"
-        secondary: "#9a97ff"
-        tertiary: "#ef9874"
-        highlight: "rgba(154, 151, 255, 0.14)"
+        lightgray: "#2d2f37"
+        gray: "#92939a"
+        darkgray: "#b8b6b1"
+        dark: "#f3f0e9"
+        secondary: "#aaa7ff"
+        tertiary: "#f09a77"
+        highlight: "rgba(170, 167, 255, 0.13)"
         textHighlight: "rgba(224, 136, 91, 0.28)"
 plugins:
   - source: "@quartz-community/created-modified-date"
@@ -150,7 +150,9 @@ plugins:
   - source: "@quartz-community/og-image"
     enabled: true
   - source: "@quartz-community/cname"
-    enabled: true
+    # Native GitHub Pages deployment uses yankj.github.io directly. Emitting a
+    # CNAME file would keep the previous reference site's custom-domain binding.
+    enabled: false
   - source: "@quartz-community/canvas-page"
     enabled: true
   - source: "@quartz-community/content-page"
@@ -171,6 +173,12 @@ plugins:
       priority: 10
   - source: "@quartz-community/search"
     enabled: true
+    options:
+      enablePreview: false
+      fieldPriority:
+        - title
+        - content
+        - tags
     layout:
       position: left
       priority: 20
@@ -274,7 +282,9 @@ plugins:
         - knowledgeType
         - category
       excludedProperties: []
-      hidePropertiesView: false
+      # Frontmatter is still indexed, but the default Obsidian-style property
+      # table is hidden in favor of the quieter date and tag metadata row.
+      hidePropertiesView: true
       delimiters: ---
       language: yaml
     order: 5
