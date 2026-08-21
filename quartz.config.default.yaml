@@ -18,30 +18,30 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
+      header: Inter
+      body: Noto Sans SC
       code: IBM Plex Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#f4f1ea"
+        lightgray: "#dedad0"
+        gray: "#99978f"
+        darkgray: "#44464f"
+        dark: "#17181e"
+        secondary: "#5b57d9"
+        tertiary: "#bd6546"
+        highlight: "rgba(91, 87, 217, 0.11)"
+        textHighlight: "rgba(224, 150, 93, 0.34)"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#111217"
+        lightgray: "#2c2e36"
+        gray: "#747780"
+        darkgray: "#c8c7c2"
+        dark: "#f1eee7"
+        secondary: "#9a97ff"
+        tertiary: "#ef9874"
+        highlight: "rgba(154, 151, 255, 0.14)"
+        textHighlight: "rgba(224, 136, 91, 0.28)"
 plugins:
   - source: "@quartz-community/created-modified-date"
     enabled: true
@@ -105,8 +105,32 @@ plugins:
     order: 92
   - source: "@quartz-community/quartz-fonts"
     enabled: true
+    options:
+      useThemeFonts: false
+      fontOrigin: googleFonts
+      title:
+        name: Inter
+        weights: [400, 600, 700]
+      header:
+        name: Inter
+        weights: [400, 600, 700]
+      body:
+        name: Noto Sans SC
+        weights: [400, 500, 600]
+      code:
+        name: IBM Plex Mono
+        weights: [400, 500, 600]
+      h1: Inter
+      h2: Inter
+      h3: Inter
+      h4: Inter
+      h5: Inter
+      h6: Inter
   - source: "@quartz-themes/core"
-    enabled: true
+    # Yankj Fieldnote Dusk is implemented with project-owned design tokens in
+    # quartz/styles/custom.scss; keep the package available, but do not layer a
+    # third-party theme over it.
+    enabled: false
     options:
       theme: macos
       mode: both

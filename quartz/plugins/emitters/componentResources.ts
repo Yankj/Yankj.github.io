@@ -84,6 +84,18 @@ async function joinScripts(scripts: string[]): Promise<string> {
 function addGlobalPageResources(ctx: BuildCtx, componentResources: ComponentResources) {
   const cfg = ctx.cfg.configuration
 
+  // The Explorer falls back to scrollIntoView when no rail position exists,
+  // which can move the document viewport on a fresh article load. Seed a
+  // neutral rail position before component scripts run; real rail scrolling
+  // continues to update this value normally.
+  componentResources.beforeDOMLoaded.push(`
+    try {
+      if (sessionStorage.getItem("explorerScrollTop") === null) {
+        sessionStorage.setItem("explorerScrollTop", "0")
+      }
+    } catch {}
+  `)
+
   // popovers
   if (cfg.enablePopovers) {
     componentResources.afterDOMLoaded.push(popoverScript)
