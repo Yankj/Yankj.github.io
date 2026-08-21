@@ -145,7 +145,9 @@ async function startWatching(
       if (pathStr.startsWith(".git/")) return true
       if (gitIgnoredMatcher(pathStr)) return true
       for (const pattern of cfg.configuration.ignorePatterns) {
-        if (minimatch(pathStr, pattern)) {
+        // Ignore patterns are only used for local file watching; brace
+        // expansion is unnecessary here and can create very large arrays.
+        if (minimatch(pathStr, pattern, { nobrace: true })) {
           return true
         }
       }

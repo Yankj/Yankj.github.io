@@ -16,6 +16,10 @@ export async function glob(
       cwd,
       ignore: ignorePatterns,
       gitignore: true,
+      // Quartz's own discovery patterns do not need brace expansion. Keep it
+      // disabled so a future config change cannot turn file discovery into an
+      // unbounded in-memory expansion.
+      braceExpansion: false,
     })
   ).map(toPosixPath)
   return fps as FilePath[]
