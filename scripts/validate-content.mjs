@@ -1,18 +1,19 @@
 #!/usr/bin/env node
 
-import { basename, relative, resolve } from "node:path"
-import { readdirSync, readFileSync, statSync } from "node:fs"
+import { basename, dirname, relative, resolve, sep } from "node:path"
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs"
 
 const root = resolve(process.argv[2] ?? "content")
 const compatibility = process.argv.includes("--compat")
-const allowedSections = new Set(["practice", "knowledge"])
-const allowedKnowledgeTypes = new Set(["concept", "tool", "method", "insight", "reading"])
+const allowedSections = new Set(["practice", "knowledge", "works"])
+const allowedKnowledgeTypes = new Set(["concept", "tool", "method", "insight", "reading", "work"])
 const fileTypeByKnowledgeType = new Map([
   ["concept", "概念"],
   ["tool", "工具"],
   ["method", "方法"],
   ["insight", "思考"],
   ["reading", "阅读"],
+  ["work", "作品"],
 ])
 const isoDate = /^\d{4}-\d{2}-\d{2}$/
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
@@ -63,7 +64,7 @@ for (const path of walk(root)) {
   if (!frontmatter || fieldValue(frontmatter, "publish") !== "true") continue
 
   const fileName = basename(path)
-  const fileNameMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})_(概念|工具|方法|思考|阅读)_(.+)\.md$/)
+  const fileNameMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})_(概念|工具|方法|思考|阅读|作品)_(.+)\.md$/)
   if (!fileNameMatch) {
     error(errors, `${relativePath}: published article filename must be YYYY-MM-DD_类型_标题.md`)
     continue
@@ -87,13 +88,28 @@ for (const path of walk(root)) {
   }
 
   const section = fieldValue(frontmatter, "section")
-  if (section && !allowedSections.has(section)) error(errors, `${relativePath}: section must be practice or knowledge`)
+  if (section && !allowedSections.has(section)) error(errors, `${relativePath}: section must be practice, knowledge or works`)
   const knowledgeType = fieldValue(frontmatter, "knowledgeType")
   if (knowledgeType && !allowedKnowledgeTypes.has(knowledgeType)) {
     error(errors, `${relativePath}: knowledgeType is not supported`)
   }
   if (knowledgeType && fileTypeByKnowledgeType.get(knowledgeType) !== fileNameMatch[2]) {
     error(errors, `${relativePath}: filename type ${fileNameMatch[2]} does not match knowledgeType ${knowledgeType}`)
+  }
+
+  // Works (作品) live in content/works/, carry a <=60 character description and an
+  // optional cover image that is synced next to the article.
+  const isWork = relative(root, path).split(sep)[0] === "works"
+  if (isWork !== (section === "works") || isWork !== (knowledgeType === "work")) {
+    error(errors, `${relativePath}: works must live in content/works/ with section works and knowledgeType work`)
+  }
+  if (isWork) {
+    const description = fieldValue(frontmatter, "description")
+    if (!description) error(errors, `${relativePath}: works must have a description`)
+    if ([...description].length > 60) error(errors, `${relativePath}: description must be <= 60 characters`)
+    const cover = fieldValue(frontmatter, "cover")
+    if (cover && !/\.(?:png|jpe?g|webp)$/.test(cover)) error(errors, `${relativePath}: cover must be a png/jpg/jpeg/webp image`)
+    if (cover && !existsSync(resolve(dirname(path), cover))) error(errors, `${relativePath}: cover image not found: ${cover}`)
   }
 
   const category = fieldValue(frontmatter, "category")
@@ -104,7 +120,7 @@ for (const path of walk(root)) {
   if (new Set(tags.map((tag) => tag.toLowerCase())).size !== tags.length) {
     error(errors, `${relativePath}: tags must be unique`)
   }
-  const reserved = new Set([section, knowledgeType, fileNameMatch[2], "practice", "knowledge"])
+  const reserved = new Set([section, knowledgeType, fileNameMatch[2], "practice", "knowledge", "works", "work", "作品"])
   if (tags.some((tag) => reserved.has(tag.toLowerCase()))) {
     error(errors, `${relativePath}: tags must not duplicate section or knowledge type`)
   }

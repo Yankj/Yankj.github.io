@@ -7,6 +7,10 @@ description: 我的知识沉淀与精选笔记
 
 这里是精选过的知识沉淀。所有笔记从我的 Obsidian 知识库 `kj-knowledge` 同步而来，只有标记为 `publish: true` 的精品内容才会出现在这里。
 
+## 作品
+
+[作品](./works/)：深度图文、行业报道、视频脚本等创作成品的归档。
+
 ## 精选笔记
 
 <!-- 同步流水线会自动把 publish: true 的笔记放入 content/，
