@@ -55,6 +55,7 @@ Explorer 侧边栏也优先读取 frontmatter 的 `title`。当文章缺少 `tit
 - 文件名 `YYYY-MM-DD_作品_标题.md`，`section: works`、`knowledgeType: work`，三者必须一致。
 - 在标准 8 个字段之后追加 `description`（必填，≤60 字，双引号单行字符串）和可选的 `cover`（封面图相对路径，如 `./assets/2026-11-14-ai-testing-cover.jpg`）。
 - 图片放在 `works/assets/`，小写 kebab-case 文件名，png/jpg/jpeg/webp，单张 ≤3 MB；只有已发布作品引用到的图片会被同步。
+- `works/index.md` 是作品文件夹页，同样来自 `kj-knowledge/publish/works/index.md`，只含 `publish`、`title: "作品"`、`description` 和一两句简介，让 `/works/` 页和侧边栏显示「作品」。不要在博客仓库手工新建它，同步会覆盖。
 - 封面由正文第一张图片 `![封面](./assets/...)` 显示，`cover` 必须同时在正文中嵌入。
 
 ## 迁移策略

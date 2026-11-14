@@ -63,6 +63,16 @@ for (const path of walk(root)) {
   const { frontmatter, source } = readDocument(path)
   if (!frontmatter || fieldValue(frontmatter, "publish") !== "true") continue
 
+  // content/works/index.md is the works folder page synced from kj-knowledge
+  // (publish/works/index.md). It names the /works/ page and sidebar folder「作品」.
+  if (relative(root, path) === `works${sep}index.md`) {
+    if (!fieldValue(frontmatter, "title")) error(errors, `${relativePath}: works folder page must have a title`)
+    if ([...fieldValue(frontmatter, "description")].length > 60) {
+      error(errors, `${relativePath}: description must be <= 60 characters`)
+    }
+    continue
+  }
+
   const fileName = basename(path)
   const fileNameMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})_(概念|工具|方法|思考|阅读|作品)_(.+)\.md$/)
   if (!fileNameMatch) {
