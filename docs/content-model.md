@@ -4,8 +4,8 @@
 
 | 字段 | 可选值 | 解决的问题 | 示例 |
 | --- | --- | --- | --- |
-| `section` | `practice` / `knowledge` / `works` | 文章应该进入“实践”“知识”还是“作品”板块 | `practice` |
-| `knowledgeType` | `concept` / `tool` / `method` / `insight` / `reading` / `work` | 文章的知识形态，延续现有概念、工具、方法分类；`work` 只用于作品 | `method` |
+| `section` | `practice` / `knowledge` | 文章应该进入“实践”还是“知识”板块 | `practice` |
+| `knowledgeType` | `concept` / `tool` / `method` / `insight` / `reading` | 文章的知识形态，延续现有概念、工具、方法分类 | `method` |
 | `category` | 单个主题域 slug | 文章属于哪个主题域 | `ai`、`engineering`、`product` |
 | `tags` | 3~7 个不重复标签 | 细粒度检索与关联 | `agent`、`observability` |
 | `date` | `YYYY-MM-DD` | 首次公开发布日期，必须等于文件名日期 | `2026-08-09` |
@@ -21,7 +21,7 @@
 - `practice + method`：记录真实项目的实施方案、步骤、踩坑与复盘。
 - `practice + tool`：记录工具在具体项目中的落地过程；不要因为用了某个工具就把文章写成工具说明书。
 
-原来的 `publish/concept`、`publish/method`、`publish/tool` 路径继续保留，用于兼容已有 URL；新的 `section` 与 `knowledgeType` 负责产品层分类。不要把 `practice`、`knowledge`、`concept` 等再重复塞进 `tags`，标签只描述主题、技术和关键词。
+原来的 `publish/concept`、`publish/method`、`publish/tool` 路径继续保留，用于兼容已有 URL；思考、感想类文章（观点、复盘、行业观察）放 `publish/insight/`，对应 `knowledgeType: insight` 与文件名类型 `思考`，同步后位于 `/insight/`；新的 `section` 与 `knowledgeType` 负责产品层分类。不要把 `practice`、`knowledge`、`concept` 等再重复塞进 `tags`，标签只描述主题、技术和关键词。
 
 ## 推荐 frontmatter
 
@@ -48,15 +48,7 @@ Explorer 侧边栏也优先读取 frontmatter 的 `title`。当文章缺少 `tit
 
 `date` 必须等于文件名日期，`modified` 不能早于 `date`。`整理日期`、`更新日期`仅作为知识库历史字段兼容；如果保留，必须分别与 `date`、`modified` 一致。
 
-## 作品
-
-作品（深度图文、行业报道、视频脚本等创作成品）来自 `kj-knowledge/publish/works/`，同步到 `content/works/`，列表页就是 Quartz 现有的文件夹页 `/works/`，首页 `content/index.md` 放一个入口链接。
-
-- 文件名 `YYYY-MM-DD_作品_标题.md`，`section: works`、`knowledgeType: work`，三者必须一致。
-- 在标准 8 个字段之后追加 `description`（必填，≤60 字，双引号单行字符串）和可选的 `cover`（封面图相对路径，如 `./assets/2026-11-14-ai-testing-cover.jpg`）。
-- 图片放在 `works/assets/`，小写 kebab-case 文件名，png/jpg/jpeg/webp，单张 ≤3 MB；只有已发布作品引用到的图片会被同步。
-- `works/index.md` 是作品文件夹页，同样来自 `kj-knowledge/publish/works/index.md`，只含 `publish`、`title: "作品"`、`description` 和一两句简介，让 `/works/` 页和侧边栏显示「作品」。不要在博客仓库手工新建它，同步会覆盖。
-- 封面由正文第一张图片 `![封面](./assets/...)` 显示，`cover` 必须同时在正文中嵌入。
+文章配图（如 3:4 封面）放在知识库文章同级的 `assets/` 下，正文用 `![说明](./assets/name.jpg)` 引用；同步脚本只复制已发布文章引用到的图片，博客侧不手工放图，下次同步会被覆盖。
 
 ## 迁移策略
 
