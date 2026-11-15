@@ -252,6 +252,7 @@ plugins:
     enabled: true
     options:
       links:
+        官网: https://heydusk.com
         GitHub: https://github.com/Yankj
     layout:
       position: footer

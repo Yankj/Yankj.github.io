@@ -1,12 +1,14 @@
 # Yankj 的知识博客
 
-一个用 Obsidian 记录、用 Quartz 发布、靠自动流水线同步的个人知识博客。
+JackYan 的公开博客：用 Obsidian 记录、用 Quartz 发布、靠自动流水线同步。我是独立开发者，也是 [理想三旬 / HeyDusk](https://heydusk.com) 的主理人。
 
-> **博客地址**：<https://yankj.github.io>
+> **博客地址**：<https://blog.heydusk.com>
+>
+> `https://yankj.github.io` 会跳转到上述规范域名。
 
 ## 这是什么
 
-这是我的个人博客，主要记录**学习过程中的一些思考**，以及**觉得值得分享的内容**。文章不一定成体系，但都是认真整理过的。
+这是我的个人公开博客，主要记录**学习过程中的一些思考**，以及**觉得值得分享的内容**。也可从 [heydusk.com](https://heydusk.com) 找到我。文章不一定成体系，但都是认真整理过的。
 
 ## 内容主题
 

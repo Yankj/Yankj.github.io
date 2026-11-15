@@ -1,11 +1,11 @@
 ---
 title: Yankj's Knowledge
-description: 我的知识沉淀与精选笔记
+description: JackYan 的公开博客：软件工程、AI 与产品思考
 ---
 
 # Yankj's Knowledge
 
-这里是精选过的知识沉淀。所有笔记从我的 Obsidian 知识库 `kj-knowledge` 同步而来，只有标记为 `publish: true` 的精品内容才会出现在这里。
+这里是 JackYan 的公开博客，记录软件工程、AI Agent 与产品方面的思考。我是独立开发者，也是 [理想三旬 / HeyDusk](https://heydusk.com) 的主理人。
 
 ## 精选笔记
 
@@ -47,3 +47,7 @@ description: 我的知识沉淀与精选笔记
 - [2026-11-14 大模型榜上找不出第三国，他们在打另外几盘棋](./insight/2026-11-14_思考_大模型榜上找不出第三国)
 - [2026-11-13 执掌英伟达33年，两周仓促退场：算力牌桌正在重洗](./insight/2026-11-13_思考_执掌英伟达33年两周仓促退场)
 - [2026-11-13 每月 400 刀喂给 Codex 和 Grok Bot：一个做题家，一个热闹的群](./insight/2026-11-13_思考_每月400刀喂给Codex和GrokBot)
+
+---
+
+> 技术备注：文章从个人 Obsidian 知识库同步而来，只有标记为 `publish: true` 的内容会出现在这里。本页目录为手动维护，不会被同步流水线覆盖。
